@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Adsmek</title>
-        <link rel="stylesheet" href="./theme/css/main.css" />
+        <title>themes</title>
+        <link rel="stylesheet" href="../theme/css/main.css" />
 </head>
 
 <body id="index" class="home">
@@ -11,16 +11,30 @@
 <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
 </a>
         <header id="banner" class="body">
-                <h1><a href="./">Adsmek </a></h1>
+                <h1><a href="../">Adsmek </a></h1>
                 <nav><ul>
-                    <li><a href="./pages/themes.html">themes</a></li>
+                    <li class="active"><a href="../pages/themes.html">themes</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
-<h1>Archives for Adsmek</h1>
-
-<dl>
-</dl>
+    <h1 class="entry-title">themes</h1>
+    
+    <p>$ pelican content -s pelicanconf.py -t /projects/your-site/themes/your-theme
+├── static
+│ ├── css
+│ └── изображения
+└── templates
+    ├── archives.html // для отображения архивов
+    ├── period_archives.html // для отображения архивов периода времени
+    ├── article.html // обрабатывается для каждой статьи
+    ├── author.html // обрабатывается для каждого автора
+    ├── authors.html  // должен перечислить всех авторов
+    ├── categories.html // должен перечислить все категории
+    ├── category.html // обрабатывается для каждой категории
+    ├── index.html // индекс (список всех статей)
+    ├── page.html // обрабатывается для каждой страницы
+    ├── tag.html // обрабатывается для каждого тега
+    └── tags.html // должен содержать список всех тегов. Может быть облаком тегов.</p>
 </section>
         <section id="extras" class="body">
                 <div class="blogroll">
