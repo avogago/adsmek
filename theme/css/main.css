@@ -50,7 +50,7 @@ hr { border: 2px solid #EEEEEE; }
 a {outline: 0;}
 a img {border: 0px; text-decoration: none;}
 a:link, a:visited {
-	color: #C74350;
+	color: #000305;
 	padding: 0 1px;
 	text-decoration: underline;
 }
@@ -193,7 +193,7 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 
 	/* Main Nav */
 	#banner nav {
-		background: #c74350;
+		background: #C74350;
 		font-size: 1.143em;
 		height: 80px;
 		line-height: 30px;
