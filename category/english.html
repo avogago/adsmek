@@ -15,6 +15,7 @@
                 <nav><ul>
                     <li><a href="https://adsmek.github.io/pages/kozarada.html">Kozarada</a></li>
                     <li class="active"><a href="https://adsmek.github.io/category/english.html">english</a></li>
+                    <li><a href="https://adsmek.github.io/category/misc.html">misc</a></li>
                     <li><a href="https://adsmek.github.io/category/posts.html">posts</a></li>
                     <li><a href="https://adsmek.github.io/category/translations.html">translations</a></li>
                 </ul></nav>
@@ -22,7 +23,367 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://adsmek.github.io/how-to-create-your-first-static-site-with-pelican-and-jinja2.html">How to Create Your First Static Site with Pelican and Jinja2</a></h1>
+                    <h1 class="entry-title"><a href="https://adsmek.github.io/content-articles-and-pages.html">Content / Articles and Pages</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2020-08-07T00:00:00+02:00">
+                Published: Пт 07 Август 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://adsmek.github.io/author/dmitry.html">Dmitry</a>
+        </address>
+<p>In <a href="https://adsmek.github.io/category/english.html">english</a>.</p>
+
+</footer><!-- /.post-info --><p>Writing content¶
+Articles and pages¶
+Pelican considers “articles” to be chronological content, such as posts on a blog, and thus associated with a date.</p>
+<p>The idea behind “pages” is that they are usually not temporal in nature and are used for content that does not change very often (e.g., “About” or “Contact” pages).</p>
+<p>You can find sample content in the repository at samples/content/.</p>
+<p>File metadata¶
+Pelican tries to be smart enough to get the information it needs from the file system (for instance, about the category of your articles), but some information you need to provide in the form of metadata inside your files.</p>
+<p>If you are writing your content in reStructuredText format, you can provide this metadata in text files via the following syntax (give your file the .rst extension):</p>
+<p>My super title</p>
+<h6></h6>
+<p>:date: 2010-10-03 10:20
+:modified: 2010-10-04 18:40
+:tags: thats, awesome
+:category: yeah
+:slug: my-super-post
+:authors: Alexis Metaireau, Conan Doyle
+:summary: Short version for index and feeds
+Author and tag lists may be semicolon-separated instead, which allows you to write authors and tags containing commas:</p>
+<p>:tags: pelican, publishing tool; pelican, bird
+:authors: Metaireau, Alexis; Doyle, Conan
+Pelican implements an extension to reStructuredText to enable support for the abbr HTML tag. To use it, write something like this in your post:</p>
+<p>This will be turned into :abbr:<code>HTML (HyperText Markup Language)</code>.
+You can also use Markdown syntax (with a file ending in .md, .markdown, .mkd, or .mdown). Markdown generation requires that you first explicitly install the Markdown package, which can be done via pip install Markdown.</p>
+<p>Pelican also supports Markdown Extensions, which might have to be installed separately if they are not included in the default Markdown package and can be configured and loaded via the MARKDOWN setting.</p>
+<p>Metadata syntax for Markdown posts should follow this pattern:</p>
+<p>Title: My super title
+Date: 2010-12-03 10:20
+Modified: 2010-12-05 19:30
+Category: Python
+Tags: pelican, publishing
+Slug: my-super-post
+Authors: Alexis Metaireau, Conan Doyle
+Summary: Short version for index and feeds</p>
+<p>This is the content of my super blog post.
+You can also have your own metadata keys (so long as they don’t conflict with reserved metadata keywords) for use in your templates. The following table contains a list of reserved metadata keywords:</p>
+<p>Metadata    Description
+title   Title of the article or page
+date    Publication date (e.g., YYYY-MM-DD HH:SS)
+modified    Modification date (e.g., YYYY-MM-DD HH:SS)
+tags    Content tags, separated by commas
+keywords    Content keywords, separated by commas (HTML content only)
+category    Content category (one only — not multiple)
+slug    Identifier used in URLs and translations
+author  Content author, when there is only one
+authors Content authors, when there are multiple
+summary Brief description of content for index pages
+lang    Content language ID (en, fr, etc.)
+translation Is content is a translation of another (true or false)
+status  Content status: draft, hidden, or published
+template    Name of template to use to generate content (without extension)
+save_as Save content to this relative file path
+url URL to use for this article/page
+Readers for additional formats (such as AsciiDoc) are available via plugins. Refer to pelican-plugins repository for those.</p>
+<p>Pelican can also process HTML files ending in .html and .htm. Pelican interprets the HTML in a very straightforward manner, reading metadata from meta tags, the title from the title tag, and the body out from the body tag:</p>
+<p><html>
+    <head>
+        <title>My super title</title>
+        <meta name="tags" content="thats, awesome" />
+        <meta name="date" content="2012-07-09 22:28" />
+        <meta name="modified" content="2012-07-10 20:14" />
+        <meta name="category" content="yeah" />
+        <meta name="authors" content="Alexis Métaireau, Conan Doyle" />
+        <meta name="summary" content="Short version for index and feeds" />
+    </head>
+    <body>
+        This is the content of my super blog post.
+    </body>
+</html></p>
+<p>With HTML, there is one simple exception to the standard metadata: tags can be specified either via the tags metadata, as is standard in Pelican, or via the keywords metadata, as is standard in HTML. The two can be used interchangeably.</p>
+<p>Note that, aside from the title, none of this content metadata is mandatory: if the date is not specified and DEFAULT_DATE is set to 'fs', Pelican will rely on the file’s “mtime” timestamp, and the category can be determined by the directory in which the file resides. For example, a file located at python/foobar/myfoobar.rst will have a category of foobar. If you would like to organize your files in other ways where the name of the subfolder would not be a good category name, you can set the setting USE_FOLDER_AS_CATEGORY to False. When parsing dates given in the page metadata, Pelican supports the W3C’s suggested subset ISO 8601.</p>
+<p>So the title is the only required metadata. If that bothers you, worry not. Instead of manually specifying a title in your metadata each time, you can use the source content file name as the title. For example, a Markdown source file named Publishing via Pelican.md would automatically be assigned a title of Publishing via Pelican. If you would prefer this behavior, add the following line to your settings file:</p>
+<div class="highlight"><pre><span></span><code><span class="err">FILENAME_METADATA = &#39;(?P&lt;title&gt;.*)&#39;</span>
+</code></pre></div>
+
+
+<p>Note </p>
+<p>When experimenting with different settings (especially the metadata ones) caching may interfere and the changes may not be visible. In such cases disable caching with LOAD_CONTENT_CACHE = False or use the --ignore-cache command-line switch.</p>
+<p>modified should be last time you updated the article, and defaults to date if not specified. Besides you can show modified in the templates, feed entries in feed readers will be updated automatically when you set modified to the current date after you modified your article.</p>
+<p>authors is a comma-separated list of article authors. If there’s only one author you can use author field.</p>
+<p>If you do not explicitly specify summary metadata for a given post, the SUMMARY_MAX_LENGTH setting can be used to specify how many words from the beginning of an article are used as the summary.</p>
+<p>You can also extract any metadata from the filename through a regular expression to be set in the FILENAME_METADATA setting. All named groups that are matched will be set in the metadata object. The default value for the FILENAME_METADATA setting will only extract the date from the filename. For example, if you would like to extract both the date and the slug, you could set something like: <code>'(?P&lt;date&gt;\d{4}-\d{2}-\d{2})_(?P&lt;slug&gt;.*)'</code></p>
+<p>Please note that the metadata available inside your files takes precedence over the metadata extracted from the filename.</p>
+<p>Pages¶
+If you create a folder named pages inside the content folder, all the files in it will be used to generate static pages, such as About or Contact pages. (See example filesystem layout below.)</p>
+<p>You can use the DISPLAY_PAGES_ON_MENU setting to control whether all those pages are displayed in the primary navigation menu. (Default is True.)</p>
+<p>If you want to exclude any pages from being linked to or listed in the menu then add a status: hidden attribute to its metadata. This is useful for things like making error pages that fit the generated theme of your site.</p>
+<p>Static content¶
+Static files are files other than articles and pages that are copied to the output folder as-is, without processing. You can control which static files are copied over with the STATIC_PATHS setting of the project’s pelicanconf.py file. Pelican’s default configuration includes the images directory for this, but others must be added manually. In addition, static files that are explicitly linked to are included (see below).</p>
+<p>Mixed content in the same directory¶
+Starting with Pelican 3.5, static files can safely share a source directory with page source files, without exposing the page sources in the generated site. Any such directory must be added to both STATIC_PATHS and PAGE_PATHS (or STATIC_PATHS and ARTICLE_PATHS). Pelican will identify and process the page source files normally, and copy the remaining files as if they lived in a separate directory reserved for static files.</p>
+<p>Note: Placing static and content source files together in the same source directory does not guarantee that they will end up in the same place in the generated site. The easiest way to do this is by using the <code>{attach}</code> link syntax (described below). Alternatively, the <code>STATIC_SAVE_AS</code>, <code>PAGE_SAVE_AS</code>, and <code>ARTICLE_SAVE_AS</code> settings (and the corresponding <code>*_URL</code> settings) can be configured to place files of different types together, just as they could in earlier versions of Pelican.</p>
+<p>Linking to internal content¶
+From Pelican 3.1 onwards, it is now possible to specify intra-site links to files in the source content hierarchy instead of files in the generated hierarchy. This makes it easier to link from the current post to other content that may be sitting alongside that post (instead of having to determine where the other content will be placed after site generation).</p>
+<p>To link to internal content (files in the content directory), use the following syntax for the link target: {filename}path/to/file Note: forward slashes, /, are the required path separator in the {filename} directive on all operating systems, including Windows.</p>
+<p>For example, a Pelican project might be structured like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">website</span><span class="o">/</span>
+<span class="err">├──</span> <span class="n">content</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">category</span><span class="o">/</span>
+<span class="err">│</span>   <span class="err">│</span>   <span class="err">└──</span> <span class="n">article1</span><span class="p">.</span><span class="n">rst</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">article2</span><span class="p">.</span><span class="n">md</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="n">pages</span>
+<span class="err">│</span>       <span class="err">└──</span> <span class="n">about</span><span class="p">.</span><span class="n">md</span>
+<span class="err">└──</span> <span class="n">pelican</span><span class="p">.</span><span class="n">conf</span><span class="p">.</span><span class="n">py</span>
+<span class="k">In</span> <span class="n">this</span> <span class="n">example</span><span class="p">,</span> <span class="n">article1</span><span class="p">.</span><span class="n">rst</span> <span class="n">could</span> <span class="n">look</span> <span class="k">like</span> <span class="n">this</span><span class="p">:</span>
+
+<span class="n">The</span> <span class="k">first</span> <span class="n">article</span>
+<span class="o">#################</span>
+
+<span class="p">:</span><span class="nb">date</span><span class="p">:</span> <span class="mi">2012</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">01</span> <span class="mi">10</span><span class="p">:</span><span class="mi">02</span>
+</code></pre></div>
+
+
+<p>See below intra-site link examples in reStructuredText format.</p>
+<p><code>a link relative to the current file &lt;{filename}../article2.md&gt;</code><em>
+<code>a link relative to the content root &lt;{filename}/article2.md&gt;</code></em></p>
+<p>and article2.md:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Title</span><span class="o">:</span> <span class="n">The</span> <span class="n">second</span> <span class="n">article</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2012</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">01</span> <span class="mi">10</span><span class="o">:</span><span class="mi">02</span>
+</code></pre></div>
+
+
+<p>See below intra-site link examples in Markdown format.</p>
+<div class="highlight"><pre><span></span><code><span class="err">[a link relative to the current file]({filename}category/article1.rst)</span>
+<span class="err">[a link relative to the content root]({filename}/category/article1.rst)</span>
+</code></pre></div>
+
+
+<p>Linking to static files¶
+You can link to static content using {static}path/to/file. Files linked to with this syntax will automatically be copied to the output directory, even if the source directories containing them are not included in the STATIC_PATHS setting of the project’s pelicanconf.py file.</p>
+<p>For example, a project’s content directory might be structured like this:</p>
+<div class="highlight"><pre><span></span><code><span class="err">content</span>
+<span class="err">├── images</span>
+<span class="err">│   └── han.jpg</span>
+<span class="err">├── pdfs</span>
+<span class="err">│   └── menu.pdf</span>
+<span class="err">└── pages</span>
+<span class="err">    └── test.md</span>
+</code></pre></div>
+
+
+<p>test.md would include:</p>
+<div class="highlight"><pre><span></span><code><span class="o">!</span><span class="p">[</span><span class="n">Alt</span> <span class="n">Text</span><span class="p">]({</span><span class="k">static</span><span class="p">}</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">han</span><span class="p">.</span><span class="n">jpg</span><span class="p">)</span>
+<span class="p">[</span><span class="n">Our</span> <span class="n">Menu</span><span class="p">]({</span><span class="k">static</span><span class="p">}</span><span class="o">/</span><span class="n">pdfs</span><span class="o">/</span><span class="n">menu</span><span class="p">.</span><span class="n">pdf</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Site generation would then copy han.jpg to output/images/han.jpg, menu.pdf to output/pdfs/menu.pdf, and write the appropriate links in test.md.</p>
+<p>If you use {static} to link to an article or a page, this will be turned into a link to its source code.</p>
+<p>Attaching static files¶
+Starting with Pelican 3.5, static files can be “attached” to a page or article using this syntax for the link target: {attach}path/to/file This works like the {static} syntax, but also relocates the static file into the linking document’s output directory. If the static file originates from a subdirectory beneath the linking document’s source, that relationship will be preserved on output. Otherwise, it will become a sibling of the linking document.</p>
+<p>This only works for linking to static files.</p>
+<p>For example, a project’s content directory might be structured like this:</p>
+<div class="highlight"><pre><span></span><code><span class="err">content</span>
+<span class="err">├── blog</span>
+<span class="err">│   ├── icons</span>
+<span class="err">│   │   └── icon.png</span>
+<span class="err">│   ├── photo.jpg</span>
+<span class="err">│   └── testpost.md</span>
+<span class="err">└── downloads</span>
+<span class="err">    └── archive.zip</span>
+</code></pre></div>
+
+
+<p>pelicanconf.py would include:</p>
+<div class="highlight"><pre><span></span><code><span class="err">PATH = &#39;content&#39;</span>
+<span class="err">ARTICLE_PATHS = [&#39;blog&#39;]</span>
+<span class="err">ARTICLE_SAVE_AS = &#39;{date:%Y}/{slug}.html&#39;</span>
+<span class="err">ARTICLE_URL = &#39;{date:%Y}/{slug}.html&#39;</span>
+</code></pre></div>
+
+
+<p>testpost.md would include:</p>
+<div class="highlight"><pre><span></span><code><span class="nl">Title</span><span class="p">:</span> <span class="n">Test</span> <span class="n">Post</span>
+<span class="nl">Category</span><span class="p">:</span> <span class="n">test</span>
+<span class="nl">Date</span><span class="p">:</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">31</span>
+
+<span class="o">!</span><span class="p">[</span><span class="n">Icon</span><span class="p">]({</span><span class="n">attach</span><span class="p">}</span><span class="n">icons</span><span class="o">/</span><span class="n">icon</span><span class="p">.</span><span class="n">png</span><span class="p">)</span>
+<span class="o">!</span><span class="p">[</span><span class="n">Photo</span><span class="p">]({</span><span class="n">attach</span><span class="p">}</span><span class="n">photo</span><span class="p">.</span><span class="n">jpg</span><span class="p">)</span>
+<span class="p">[</span><span class="n">Downloadable</span> <span class="n">File</span><span class="p">]({</span><span class="n">attach</span><span class="p">}</span><span class="o">/</span><span class="n">downloads</span><span class="o">/</span><span class="n">archive</span><span class="p">.</span><span class="n">zip</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Site generation would then produce an output directory structured like this:</p>
+<div class="highlight"><pre><span></span><code><span class="err">output</span>
+<span class="err">└── 2014</span>
+<span class="err">    ├── archive.zip</span>
+<span class="err">    ├── icons</span>
+<span class="err">    │   └── icon.png</span>
+<span class="err">    ├── photo.jpg</span>
+<span class="err">    └── test-post.html</span>
+</code></pre></div>
+
+
+<p>Notice that all the files linked using {attach} ended up in or beneath the article’s output directory.</p>
+<p>If a static file is linked multiple times, the relocating feature of {attach} will only work in the first of those links to be processed. After the first link, Pelican will treat {attach} like {static}. This avoids breaking the already-processed links.</p>
+<p>Be careful when linking to a file from multiple documents: Since the first link to a file finalizes its location and Pelican does not define the order in which documents are processed, using {attach} on a file linked by multiple documents can cause its location to change from one site build to the next. (Whether this happens in practice will depend on the operating system, file system, version of Pelican, and documents being added, modified, or removed from the project.) Any external sites linking to the file’s old location might then find their links broken. It is therefore advisable to use {attach} only if you use it in all links to a file, and only if the linking documents share a single directory. Under these conditions, the file’s output location will not change in future builds. In cases where these precautions are not possible, consider using {static} links instead of {attach}, and letting the file’s location be determined by the project’s STATIC_SAVE_AS and STATIC_URL settings. (Per-file save_as and url overrides can still be set in EXTRA_PATH_METADATA.)</p>
+<p>Linking to authors, categories, index and tags¶
+You can link to authors, categories, index and tags using the {author}name, {category}foobar, {index} and {tag}tagname syntax.</p>
+<p>Deprecated internal link syntax¶
+To remain compatible with earlier versions, Pelican still supports vertical bars (||) in addition to curly braces ({}) for internal links. For example: |filename|an_article.rst, |tag|tagname, |category|foobar. The syntax was changed from || to {} to avoid collision with Markdown extensions or reST directives. Similarly, Pelican also still supports linking to static content with {filename}. The syntax was changed to {static} to allow linking to both generated articles and pages and their static sources.</p>
+<p>Support for the old syntax may eventually be removed.</p>
+<p>Including other files¶
+Both Markdown and reStructuredText syntaxes provide mechanisms for this.</p>
+<p>Following below are some examples for reStructuredText using the include directive:</p>
+<p>.. include:: file.rst
+Include a fragment of a file delimited by two identifiers, highlighted as C++ (slicing based on line numbers is also possible):</p>
+<div class="highlight"><pre><span></span><code><span class="p">..</span> <span class="ow">include</span><span class="p">::</span> main.cpp
+    <span class="nc">:code:</span> c++
+    <span class="nc">:start-after:</span> // begin
+    <span class="nc">:end-before:</span> // end
+</code></pre></div>
+
+
+<p>Include a raw HTML file (or an inline SVG) and put it directly into the output without any processing:</p>
+<div class="highlight"><pre><span></span><code><span class="p">..</span> <span class="ow">raw</span><span class="p">::</span> html
+    <span class="nc">:file:</span> table.html
+</code></pre></div>
+
+
+<p>For Markdown, one must rely on an extension. For example, using the mdx_include plugin:</p>
+<div class="highlight"><pre><span></span><code><span class="err">```html</span>
+<span class="err">{! template.html !}</span>
+<span class="err">```</span>
+</code></pre></div>
+
+
+<p>Importing an existing site¶
+It is possible to import your site from WordPress, Tumblr, Dotclear, and RSS feeds using a simple script. See Importing an existing site.</p>
+<p>Translations¶
+It is possible to translate articles. To do so, you need to add a lang meta attribute to your articles/pages and set a DEFAULT_LANG setting (which is English [en] by default). With those settings in place, only articles with the default language will be listed, and each article will be accompanied by a list of available translations for that article.</p>
+<p>Note</p>
+<p>This core Pelican functionality does not create sub-sites (e.g. example.com/de) with translated templates for each language. For such advanced functionality the i18n_subsites plugin can be used.</p>
+<p>By default, Pelican uses the article’s URL “slug” to determine if two or more articles are translations of one another. (This can be changed with the ARTICLE_TRANSLATION_ID setting.) The slug can be set manually in the file’s metadata; if not set explicitly, Pelican will auto-generate the slug from the title of the article.</p>
+<p>Here is an example of two articles, one in English and the other in French.</p>
+<p>The English article:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Foobar</span> <span class="k">is</span> <span class="k">not</span> <span class="n">dead</span>
+<span class="o">##################</span>
+
+<span class="p">:</span><span class="n">slug</span><span class="p">:</span> <span class="n">foobar</span><span class="o">-</span><span class="k">is</span><span class="o">-</span><span class="k">not</span><span class="o">-</span><span class="n">dead</span>
+<span class="p">:</span><span class="n">lang</span><span class="p">:</span> <span class="n">en</span>
+
+<span class="n">That</span><span class="err">&#39;</span><span class="n">s</span> <span class="k">true</span><span class="p">,</span> <span class="n">foobar</span> <span class="k">is</span> <span class="n">still</span> <span class="n">alive</span><span class="o">!</span>
+</code></pre></div>
+
+
+<p>And the French version:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Foobar</span> <span class="n">n</span><span class="err">&#39;</span><span class="n">est</span> <span class="n">pas</span> <span class="n">mort</span> <span class="o">!</span>
+<span class="o">#######################</span>
+
+<span class="p">:</span><span class="n">slug</span><span class="p">:</span> <span class="n">foobar</span><span class="o">-</span><span class="k">is</span><span class="o">-</span><span class="k">not</span><span class="o">-</span><span class="n">dead</span>
+<span class="p">:</span><span class="n">lang</span><span class="p">:</span> <span class="n">fr</span>
+
+<span class="n">Oui</span> <span class="n">oui</span><span class="p">,</span> <span class="n">foobar</span> <span class="n">est</span> <span class="n">toujours</span> <span class="n">vivant</span> <span class="o">!</span>
+</code></pre></div>
+
+
+<p>Post content quality notwithstanding, you can see that only item in common between the two articles is the slug, which is functioning here as an identifier. If you’d rather not explicitly define the slug this way, you must then instead ensure that the translated article titles are identical, since the slug will be auto-generated from the article title.</p>
+<p>If you do not want the original version of one specific article to be detected by the DEFAULT_LANG setting, use the translation metadata to specify which posts are translations:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Foobar</span> <span class="k">is</span> <span class="k">not</span> <span class="n">dead</span>
+<span class="o">##################</span>
+
+<span class="p">:</span><span class="n">slug</span><span class="p">:</span> <span class="n">foobar</span><span class="o">-</span><span class="k">is</span><span class="o">-</span><span class="k">not</span><span class="o">-</span><span class="n">dead</span>
+<span class="p">:</span><span class="n">lang</span><span class="p">:</span> <span class="n">en</span>
+<span class="p">:</span><span class="k">translation</span><span class="p">:</span> <span class="k">true</span>
+
+<span class="n">That</span><span class="err">&#39;</span><span class="n">s</span> <span class="k">true</span><span class="p">,</span> <span class="n">foobar</span> <span class="k">is</span> <span class="n">still</span> <span class="n">alive</span><span class="o">!</span>
+</code></pre></div>
+
+
+<p>Syntax highlighting¶
+Pelican can provide colorized syntax highlighting for your code blocks. To do so, you must use the following conventions inside your content files.</p>
+<p>For reStructuredText, use the code-block directive to specify the type of code to be highlighted (in these examples, we’ll use python):</p>
+<div class="highlight"><pre><span></span><code><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> python
+
+print(&quot;Pelican is a static site generator.&quot;)
+</code></pre></div>
+
+
+<p>For Markdown, which utilizes the CodeHilite extension to provide syntax highlighting, include the language identifier just above the code block, indenting both the identifier and the code:</p>
+<p>There are two ways to specify the identifier:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The triple-colon syntax will *not* show line numbers.&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>To display line numbers, use a path-less shebang instead of colons:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The path-less shebang syntax *will* show line numbers.&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>The specified identifier (e.g. python, ruby) should be one that appears on the list of available lexers.</p>
+<p>When using reStructuredText the following options are available in the code-block directive:</p>
+<div class="highlight"><pre><span></span><code><span class="err">Option  Valid values    Description</span>
+<span class="err">anchorlinenos   N/A If present wrap line numbers in &lt;a&gt; tags.</span>
+<span class="err">classprefix string  String to prepend to token class names</span>
+<span class="err">hl_lines    numbers List of lines to be highlighted, where line numbers to highlight are separated by a space. This is similar to emphasize-lines in Sphinx, but it does not support a range of line numbers separated by a hyphen, or comma-separated line numbers.</span>
+<span class="err">lineanchors string  Wrap each line in an anchor using this string and -linenumber.</span>
+<span class="err">linenos string  If present or set to “table” output line numbers in a table, if set to “inline” output them inline. “none” means do not output the line numbers for this table.</span>
+<span class="err">linenospecial   number  If set every nth line will be given the ‘special’ css class.</span>
+<span class="err">linenostart number  Line number for the first line.</span>
+<span class="err">linenostep  number  Print every nth line number.</span>
+<span class="err">lineseparator   string  String to print between lines of code, ‘n’ by default.</span>
+<span class="err">linespans   string  Wrap each line in a span using this and -linenumber.</span>
+<span class="err">nobackground    N/A If set do not output background color for the wrapping element</span>
+<span class="err">nowrap  N/A If set do not wrap the tokens at all.</span>
+<span class="err">tagsfile    string  ctags file to use for name definitions.</span>
+<span class="err">tagurlformat    string  format for the ctag links.</span>
+</code></pre></div>
+
+
+<p>Note that, depending on the version, your Pygments module might not have all of these options available. Refer to the HtmlFormatter section of the Pygments documentation for more details on each of the options.</p>
+<p>For example, the following code block enables line numbers, starting at 153, and prefixes the Pygments CSS classes with pgcss to make the names more unique and avoid possible CSS conflicts:</p>
+<div class="highlight"><pre><span></span><code><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> identifier
+    <span class="nc">:classprefix:</span> pgcss
+    <span class="nc">:linenos:</span> table
+    <span class="nc">:linenostart:</span> 153
+
+   &lt;indented code block goes here&gt;
+</code></pre></div>
+
+
+<p>It is also possible to specify the PYGMENTS_RST_OPTIONS variable in your Pelican settings file to include options that will be automatically applied to every code block.</p>
+<p>For example, if you want to have line numbers displayed for every code block and a CSS prefix you would set this variable to:</p>
+<div class="highlight"><pre><span></span><code><span class="err">PYGMENTS_RST_OPTIONS = {&#39;classprefix&#39;: &#39;pgcss&#39;, &#39;linenos&#39;: &#39;table&#39;}</span>
+<span class="err">If specified, settings for individual code blocks will override the defaults in your settings file.</span>
+</code></pre></div>
+
+
+<p>Publishing drafts¶
+If you want to publish an article or a page as a draft (for friends to review before publishing, for example), you can add a Status: draft attribute to its metadata. That article will then be output to the drafts folder and not listed on the index page nor on any category or tag page.</p>
+<p>If your articles should be automatically published as a draft (to not accidentally publish an article before it is finished) include the status in the DEFAULT_METADATA:</p>
+<div class="highlight"><pre><span></span><code><span class="err">DEFAULT_METADATA = {</span>
+<span class="err">    &#39;status&#39;: &#39;draft&#39;,</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<p>To publish a post when the default status is draft, update the post’s metadata to include Status: published.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://adsmek.github.io/how-to-create-your-first-static-site-with-pelican-and-jinja2.html" rel="bookmark"
+                           title="Permalink to How to Create Your First Static Site with Pelican and Jinja2">How to Create Your First Static Site with Pelican and Jinja2</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-05-06T00:00:00+02:00">
                 Published: Сб 06 Май 2017
@@ -37,256 +398,10 @@
         </address>
 <p>In <a href="https://adsmek.github.io/category/english.html">english</a>.</p>
 <p>tags: <a href="https://adsmek.github.io/tag/stati.html">статьи</a> <a href="https://adsmek.github.io/tag/english.html">english</a> <a href="https://adsmek.github.io/tag/translation.html">translation</a> </p>
-</footer><!-- /.post-info --><p>Posted by Matt Makai on June 09, 2017.
-Pelican is an incredibly well-built Python tool for creating static sites.</p>
-<p>Full Stack Python is generated with Pelican, Jinja2 templates and Markdown. This site is deployed to Amazon S3 and currently handles over one hundred thousand readers per month. There are never scaling concerns because a static site is pre-generated before deployment and a web server simply responds with existing files rather than executing any code on the server during the HTTP request-response cycle.</p>
-<p>In this tutorial you will learn how to create your own static website from scratch using Pelican.</p>
-<p>Articles page after Bootstrap CSS has been added.</p>
-<p>Our simple static site will have pages that look like the above screenshot but the entire site can be easily customized and expanded with your own design and content.</p>
-<p>Our Tools
-This tutorial should work with either Python 2 or 3, but Python 3 is strongly recommended for all new applications. I used Python 3.6.1 to write this post. In addition to Python, throughout this tutorial we will also use the following application dependencies:</p>
-<p>Pelican static site generator, version 3.7.1
-Markdown parsing library to handle Markdown as a content input format, version 2.6.8
-Jinja2, a Python template engine, version 2.9.6
-pip and virtualenv, which come packaged with Python 3, to install and isolate the Pelican, Markdown, and Jinja2 libraries from any of your other Python projects
-If you need help getting your development environment configured, take a look at this guide for setting up Python 3 and Flask on Ubuntu 16.04 LTS</p>
-<p>All code in this blog post is available open source under the MIT license on GitHub under the generating-static-websites-pelican-jinja2-markdown directory of the blog-code-examples repository. Use and abuse the source code as you like for your own applications.</p>
-<p>Install the Pelican and Markdown libraries
-Start by creating a new virtual environment for your project. My virtualenv is named staticsite but you can name yours whatever matches the project you are creating.</p>
-<p>python3 -m venv staticsite
-Activate the virtualenv.</p>
-<p>source staticsite/bin/activate
-The virtualenv will prepend its name to your command prompt when it is activated.</p>
-<p>Create and activate the Python virtual environment.</p>
-<p>Install the appropriate dependencies after your virtualenv is activated. Use the pip command to install Pelican and Markdown, which will also install Jinja2 because Pelican specifies it as a dependency.</p>
-<p>pip install pelican==3.7.1 markdown==2.6.8
-Run the pip command and after everything is installed you should see output similar to the following "Successfully installed" message.</p>
-<p>Installing collected packages: pygments, pytz, six, feedgenerator, blinker, unidecode, MarkupSafe, jinja2, python-dateutil, docutils, pelican, markdown
- Running setup.py install for feedgenerator ... done
- Running setup.py install for blinker ... done
- Running setup.py install for MarkupSafe ... done
- Running setup.py install for markdown ... done
-Successfully installed MarkupSafe-1.0 blinker-1.4 docutils-0.13.1 feedgenerator-1.9 jinja2-2.9.6 markdown-2.6.8 pelican-3.7.1 pygments-2.2.0 python-dateutil-2.6.0 pytz-2017.2 six-1.10.0 unidecode-0.4.20
-Now that our dependencies are installed into the virtualenv we can start building our static site.</p>
-<p>Generate a Basic Site
-Create a new directory to store your project. My site will contain some of my favorite retro synthwave artists as examples, but of course your site can contain whatever subjects that you want.</p>
-<p>Change into the project directory after creating it.</p>
-<p>mkdir retrosynth
-cd retrosynth
-Run the pelican-quickstart command within the new project directory.</p>
-<p>(staticsite) $ pelican-quickstart
-The quickstart script will rattle off a bunch of questions. Follow along with the answers below or modify them for your own site name and desired configuration.</p>
-<p>Welcome to pelican-quickstart v3.7.1.
-This script will help you create a new Pelican-based website.
-Please answer the following questions so this script can generate the files
-needed by Pelican.</p>
-<blockquote>
-<p>Where do you want to create your new web site? [.]
-What will be the title of this web site? RetroSynthwave
-Who will be the author of this web site? Matt Makai
-What will be the default language of this web site? [en]
-Do you want to specify a URL prefix? e.g., http://example.com (Y/n) n
-Do you want to enable article pagination? (Y/n) n
-What is your time zone? [Europe/Paris] America/New_York
-Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n)y
-Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? (Y/n) y
-Do you want to upload your website using FTP? (y/N) n
-Do you want to upload your website using SSH? (y/N) n
-Do you want to upload your website using Dropbox? (y/N) n
-Do you want to upload your website using S3? (y/N) y
-What is the name of your S3 bucket? [my_s3_bucket]
-Do you want to upload your website using Rackspace Cloud Files? (y/N) n
-Do you want to upload your website using GitHub Pages? (y/N) n
-Done. Your new project is available at /Users/matt/devel/py/retrosynth
-(staticsite) $
-What did we just create using Pelican's quickstart script? Check out the new files in the directory.</p>
-</blockquote>
-<p>(staticsite) $ ls
-Makefile develop_server.sh pelicanconf.py
-content fabfile.py publishconf.py
-The quickstart created five files and one new directory:</p>
-<p>Makefile: make command convenience tasks for common operations such as running a development server, building a site and cleaning extraneous build files
-fabfile.py: A Fabric file that has some of the same types of commands as the Makefile. Fabric is a wonderful code library but for now I recommend skipping the Fabric file because unfortunately Fabric does not yet support Python 3.
-develop_server.sh: shell script for running the development server
-pelicanconf.py: settings file for your Pelican project. If you are used to earlier versions of Pelican this file was instead named settings.py
-publishconf.py: another (optional) settings file that can be considered as a "production" settings file when you move past the development phase and want to deploy your site
-content: location for your markup files, which should be stored under pages and posts directories
-We can use these files as the base for our new static site. Let's see what it looks like by default by running it via the devserver task in the Makefile.</p>
-<p>make devserver
-The Pelican development server will start serving up your site with a daemon process. Go to localhost:8000 in your web browser and you will see the first version of your static site.</p>
-<p>Default styling on the Pelican static site.</p>
-<p>What if you don't have make installed on your system? Change into the output directory and use the python -m http.server command to use the built-in Python 3 HTTP server for your generated files.</p>
-<p>When you want to kill the development server look for a file named pelican.pidunder your project directory. The pelican.pid file is created by Pelican and contains the process ID for your development server.</p>
-<p>(staticsite) $ cat pelican.pid
-1365
-Use the ps and grep commands to view the process then stop the process with the kill command as follows. Remember that your process ID will almost definitely be different from the 1365 ID for my process.</p>
-<p>Kill the development server now so that we can use different commands to serve our site after we create our initial content.</p>
-<p>(staticsite) $ ps -A | grep 1365
- 1365 ttys003 0:01.43 /Library/Frameworks/Python.framework/Versions/3.6/Resources/Python.app/Contents/MacOS/Python /Users/matt/Envs/staticsite/bin/pelican --debug --autoreload -r /Users/matt/devel/py/retrosynth/content -o /Users/matt/devel/py/retrosynth/output -s /Users/matt/devel/py/retrosynth/pelicanconf.py
- 1411 ttys003 0:00.00 grep 1365
-(staticsite) $ kill 1365
-(staticsite) $ ps -A | grep 1365
- 1413 ttys003 0:00.00 grep 1365
-It is up to you whether you want to use the development server or not while creating your site. Every time I want to view my changes for Full Stack Python I regenerate the site using my own Makefile that wraps the pelican command. The python -m http.server command constantly serves up each build's changes.</p>
-<p>Alright, now that we have our starter files we can get to work creating some initial content.</p>
-<p>Write Some Content
-Pelican can accept both Markdown and reStructureText markup files as input.</p>
-<p>Make a new subdirectory under the content named posts. Change into the posts directory. Create a new file named gunship.markdown with the following content.</p>
-<p>title: Gunship
-slug: gunship
-category: bands
-date: 2017-06-09
-modified: 2017-06-09
-<a href="https://www.gunshipmusic.com/">Gunship</a> is a <em>retro synthwave</em> artist out of the UK.
-<a href="https://www.youtube.com/watch?v=uYRZV8dV10w">Revel in Your Time</a>,
-<a href="https://www.youtube.com/watch?v=-nC5TBv3sfU">Tech Noir</a>,
-<a href="https://www.youtube.com/watch?v=Jv1ZN8c4_Gs">Fly for Your Life</a>
-and
-<a href="https://www.youtube.com/watch?v=-HYRTJr8EyA">The Mountain</a>
-are all quality songs by Gunship. Check out those amazing music videos!
-Also take a look at other retro synthwave artists such as
-<a href="https://trevorsomething.bandcamp.com/">Trevor Something</a>,
-<a href="https://droidbishop.bandcamp.com/">Droid Bishop</a>,
-<a href="https://fm84.bandcamp.com/">FM-84</a>
-and
-<a href="https://danieldeluxe.bandcamp.com/">Daniel Deluxe</a>.
-Our make file can also help us regenerate the site when changes occur if we choose to not use the development server.</p>
-<p>We used the devserver task earlier, but what other task are available to us via the Makefile?</p>
-<p>make
-make should show us all of the following tasks we can run.</p>
-<p>Makefile for a pelican Web site
-Usage:
- make html (re)generate the web site
- make clean remove the generated files
- make regenerate regenerate files upon modification
- make publish generate using production settings
- make serve [PORT=8000] serve site at http://localhost:8000
- make serve-global [SERVER=0.0.0.0] serve (as root) to :80
- make devserver [PORT=8000] start/restart develop_server.sh
- make stopserver stop local server
- make ssh_upload upload the web site via SSH
- make rsync_upload upload the web site via rsync+ssh
- make dropbox_upload upload the web site via Dropbox
- make ftp_upload upload the web site via FTP
- make s3_upload upload the web site via S3
- make cf_upload upload the web site via Cloud Files
- make github upload the web site via gh-pages
-Set the DEBUG variable to 1 to enable debugging, e.g. make DEBUG=1 html
-Set the RELATIVE variable to 1 to enable relative urls
-The html task is what we are looking for to invoke the pelican command using our pelicanconf.py settings file.</p>
-<p>(staticsite) $ make html
-pelican /Users/matt/devel/py/retrosynth/content -o /Users/matt/devel/py/retrosynth/output -s /Users/matt/devel/py/retrosynth/pelicanconf.py
-Done: Processed 1 article, 0 drafts, 0 pages and 0 hidden pages in 0.14 seconds.
-Our site has been regenerated and placed in the output directory.</p>
-<p>If you used the make devserver command earlier then change into the output directory and give Python's built-in HTTP server a shot with the following command.</p>
-<p>cd output
-python -m http.server
-Our first post in all its glory...</p>
-<p>Gunship as our first band post on retro synthwave static site.</p>
-<p>You can change the HTTP server port binding by adding a number after the command, if you want to serve more than one static site at a time or you already have an application bound to port 8000.</p>
-<p>python -m http.server 8005
-Note that if you are using Python 2 the equivalent HTTP server command is python -m SimpleHTTPServer.</p>
-<p>Our site now has some very basic content. We could expand this start into many more posts and pages but let's learn how to modify the site configuration.</p>
-<p>Edit Site Configuration
-Pelican's quickstart assumed a bunch of defaults that may or may not be applicable to your site. Open up the pelicanconf.py file to change some of the defaults.</p>
-<p>Look for the TIMEZONE variable. If it's not right for your location then modify it to your zone. Wikipedia has a handy table of valid time zones values.</p>
-<p>Also modify the LINKS tuple to include your site (or Full Stack Python!) instead of including the "you can modify those links" link. Change the last line of LINKS so it looks like the following tuple of tuples.</p>
-<h1>Blogroll</h1>
-<p>LINKS = (('Pelican', 'http://getpelican.com/'),
- ('Python.org', 'http://python.org/'),
- ('Jinja2', 'http://jinja.pocoo.org/'),
- ('Full Stack Python', 'https://www.fullstackpython.com/'),)
-Instead of using the make html file, this time we will invoke the pelican command directly from the command line. There is nothing wrong with the Makefile, but it is a good idea to get comfortable with Pelican directly instead of only through build files.</p>
-<p>pelican -s pelicanconf.py -o output content
-Now run the HTTP server if you do not already have it running in another terminal window.</p>
-<p>cd output
-python -m http.server
-Head back to the browser and refresh to view the updated configuration.</p>
-<p>New links created by the pelicanconf.py configuration settings file.</p>
-<p>What happens when we click on the blog post title? It takes us to a very similar-looking page with the localhost:8000/gunship.html URL.</p>
-<p>Gunship subpage for the site.</p>
-<p>Alright, we updated some basic site-wide data, but our site really could use a change of paint.</p>
-<p>Modify Site Theme
-Changing the site theme is really where you can turn a standard blog into whatever type of site you want to build. While the default Pelican configuration creates a blog template, you do not need to have a chronological structure if it is not right for your website.</p>
-<p>Create a new directory under your project directory that is named theme. Within theme create another directory named templates. templates is where our Jinja2 templates will be stored and can override the default theme.</p>
-<p>Start by creating a file named base.html which will store the boilerplate used by templates across the site.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
- <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
- <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
- <span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
- <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</code></pre></div>
-
-
-<p>Within theme/templates create a file named article.html that will have a different theme for blog posts than the rest of the site. Fill article.html with the following Jinja2 markup.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span>
-<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">article.title</span> <span class="cp">}}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
-<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
- <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-8&quot;</span><span class="nt">&gt;</span>
- <span class="nt">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">article.title</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
- <span class="nt">&lt;label&gt;</span>Posted on <span class="nt">&lt;strong&gt;</span><span class="cp">{{</span> <span class="nv">article.date</span> <span class="cp">}}</span><span class="nt">&lt;/strong&gt;&lt;/label&gt;</span>
- <span class="cp">{{</span> <span class="nv">article.content</span> <span class="cp">}}</span>
- <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
-</code></pre></div>
-
-
-<p>Next we will use a Jinja2 template to override the default index.html main page. Again within the theme/templates directory, create a file named index.html with the following markup.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span>
-<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">SITENAME</span> <span class="cp">}}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
-<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
- <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-8&quot;</span><span class="nt">&gt;</span>
- <span class="nt">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">SITENAME</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
- <span class="cp">{%</span> <span class="k">for</span> <span class="nv">article</span> <span class="k">in</span> <span class="nv">articles</span> <span class="cp">%}</span>
- <span class="nt">&lt;h2&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/</span><span class="cp">{{</span> <span class="nv">article.slug</span> <span class="cp">}}</span><span class="s">.html&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span> <span class="nv">article.title</span> <span class="cp">}}</span><span class="nt">&lt;/a&gt;&lt;/h2&gt;</span>
- <span class="nt">&lt;label&gt;</span>Posted on <span class="nt">&lt;strong&gt;</span><span class="cp">{{</span> <span class="nv">article.date</span> <span class="cp">}}</span><span class="nt">&lt;/strong&gt;&lt;/label&gt;</span>
- <span class="cp">{{</span> <span class="nv">article.content</span><span class="o">|</span><span class="nf">truncate</span><span class="o">(</span><span class="m">110</span><span class="o">)</span> <span class="cp">}}</span>
- <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
- No posts yet!
- <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
- <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
-</code></pre></div>
-
-
-<p>Regenerate the site and make sure you are serving it with the development server or the python -m http.server command.</p>
-<p>Make sure to use the new -t theme flag to specify that the Jinja2 templates within the theme directory should be applied to the site.</p>
-<p>pelican -s pelicanconf.py -o output -t theme content
-Go to localhost:8000 and refresh the page. The styling on the main page is now different because it uses the index.html theme.</p>
-<p>The index.html page without any styling applied.</p>
-<p>Click on the title of the Gunship post. This page uses the article.html template, although it's hard to tell because there is no CSS applied to the page.</p>
-<p>Articles have an entirely different theme based on article.html markup.</p>
-<p>Pretty sparse! We can at least add the Bootstrap CSS to the HTML to align our content.</p>
-<p>Within <code>base.html</code>, add the following line for Bootstrap under <code>&lt;title&gt;{% block title %}{% endblock %}&lt;/title&gt;</code> and above <code>&lt;/head&gt;</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="err">&lt;!-- Latest compiled and minified Bootstrap CSS --&gt;</span>
-<span class="err">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot; integrity=&quot;sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u&quot; crossorigin=&quot;anonymous&quot;&gt;</span>
-</code></pre></div>
-
-
-<p>Regenerate the site and refresh the Gunship page.</p>
-<p>Articles page after Bootstrap CSS has been added.</p>
-<p>Well at least our design has moved from 1996 to 2001. I am sure you can do a whole lot more to improve your own site's design.</p>
-<p>The new base.html does not provide much of a theme yet but it at least provides a fresh start for completely customized sites.</p>
-<p>What's next?
-You generated your first Pelican static website using Markdown and Jinja2. Additional modifications can be made to the Jinja2 templates and the content contained in the Markdown files.</p>
-<p>Do you want to deploy your new static website to GitHub Pages or an S3 bucket? Well, that's a story for another Full Stack Python tutorial...</p>
-<p>Questions? Let me know via a GitHub issue ticket on the Full Stack Python repository, on Twitter @fullstackpython or @mattmakai.</p>
-<p>See something wrong in this blog post? Fork this page's source on GitHub and submit a pull request.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>Full Stack Python is generated with Pelican, Jinja2 templates and Markdown. This site is deployed to Amazon S3 and currently handles over one hundred thousand readers per month. There are never scaling concerns because a static site is pre-generated before deployment and a web server simply responds with existing files rather than executing any code on the server during the HTTP request-response cycle.</p>
+                <a class="readmore" href="https://adsmek.github.io/how-to-create-your-first-static-site-with-pelican-and-jinja2.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -322,7 +437,7 @@ You generated your first Pelican static website using Markdown and Jinja2. Addit
                             <li><a href="https://adsmek.github.io">adsmek</a></li>
                             <li><a href="https://github.com/Adsmek/Adsmek.github.io">перейти в репозиторий</a></li>
                             <li><a href="https://stackedit.io/app#">Markdown онлайн</a></li>
-                            <li><a href="https://adsmek.github.io/spravka.html">Справка</a></li>
+                            <li><a href="https://adsmek.github.io/category/unedtsarnd.html">Справка</a></li>
                             <li><a href="https://adsmek.github.io/tag/english.html">Articles in English</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
