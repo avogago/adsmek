@@ -195,7 +195,7 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 	#banner nav {
 		background: #C74350;
 		font-size: 1.143em;
-		height: 80px;
+		height: 40px; /* If there are more items than there are, just change the height to 80px*/
 		line-height: 30px;
 		margin: 0 auto 2em auto;
 		padding: 0;
