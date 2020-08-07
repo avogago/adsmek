@@ -47,20 +47,21 @@
 </footer><!-- /.post-info -->      <p>Posted by Duncan Lock on May 29, 2013.</p>
 <h2><a href="http://duncanlock.net/blog/2013/05/29/better-figures-images-plugin-for-pelican/">How Figures  &amp;  Images work in Pelican, by default</a></h2>
 <p>By default Pelican does a great job with figures and images, thanks to built-in support in ReStructuredText  <a href="http://duncanlock.net/blog/2013/05/29/better-figures-images-plugin-for-pelican/#rst-img">[1]</a>. Pelican will turn this rst input:</p>
-<p>.. figure:: {filename}/images/better-figures-images-plugin-for-pelican/dummy-200x200.png
-    :align: right</p>
-<div class="highlight"><pre><span></span><code><span class="n">This</span> <span class="k">is</span> <span class="n">the</span> <span class="n">caption</span> <span class="k">of</span> <span class="n">the</span> <span class="n">figure</span><span class="p">.</span>
-
-<span class="n">The</span> <span class="n">legend</span> <span class="n">consists</span> <span class="k">of</span> <span class="k">all</span> <span class="n">elements</span> <span class="k">after</span> <span class="n">the</span> <span class="n">caption</span><span class="p">.</span> <span class="k">In</span> <span class="n">this</span> <span class="k">case</span><span class="p">,</span> <span class="n">the</span> <span class="n">legend</span> <span class="n">consists</span> <span class="k">of</span> <span class="n">this</span> <span class="n">paragraph</span><span class="p">.</span>
+<div class="highlight"><pre><span></span><code><span class="p">..</span> <span class="ow">figure</span><span class="p">::</span> {filename}/images/better-figures-images-plugin-for-pelican/dummy-200x200.png
+    <span class="nc">:align:</span> right
 </code></pre></div>
 
 
+<p>This is the caption of the figure.</p>
+<p>The legend consists of all elements after the caption. In this case, the legend consists of this paragraph.</p>
 <p>into this  HTML output:</p>
-<div class="figure align-right">
-    <img alt="/static/images/dummy-200x200.png" src="/static/images/dummy-200x200.png" />
-    <p class="caption">This is the caption of the figure.</p>
-    <div class="legend">The legend consists of all elements after the caption. In this case, the legend consists of this paragraph</div>
-</div>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;figure align-right&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">&quot;/static/images/dummy-200x200.png&quot;</span> <span class="na">src=</span><span class="s">&quot;/static/images/dummy-200x200.png&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;caption&quot;</span><span class="nt">&gt;</span>This is the caption of the figure.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;legend&quot;</span><span class="nt">&gt;</span>The legend consists of all elements after the caption. In this case, the legend consists of this paragraph<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
 
 <p>Which, given this  CSS:</p>
 <div class="highlight"><pre><span></span><code><span class="c">/* Styles for Figures &amp; Images */</span>
@@ -121,7 +122,7 @@
 
 
 <p>…will look something like this:</p>
-<p><a href="http://duncanlock.net/images/posts/better-figures-images-plugin-for-pelican/screenshot-13-04-29_16-42-00-pm.png">screenshot-13-04-29_16-42-00-pm.png</a></p>
+<p><img alt="screenshot-13-04-29_16-42-00-pm.png" src="http://duncanlock.net/images/posts/better-figures-images-plugin-for-pelican/screenshot-13-04-29_16-42-00-pm.png"></p>
 <p>This is great, but it’s not  <em>quite</em>  what I wanted. I wanted the caption under the image and then the figure to shrink to fit the size of the image it contains. It turns out that this is impossible in  HTML  &amp;  CSS  unless you give the browser an explicit  width  attribute for the  img  and the containing  div.</p>
 <p>If you actually do that, and add a  style="width:  200px; height: auto;"  attribute to both the  div  and the  img, you get this - which  <em>is</em>  what I wanted:</p>
 <p><img alt="dummy-200x200.png" src="http://duncanlock.net/images/posts/better-figures-images-plugin-for-pelican/dummy-200x200.png"></p>
@@ -285,6 +286,7 @@
                             <li><a href="https://github.com/Adsmek/Adsmek.github.io">перейти в репозиторий</a></li>
                             <li><a href="https://stackedit.io/app#">Markdown онлайн</a></li>
                             <li><a href="https://adsmek.github.io/spravka.html">Справка</a></li>
+                            <li><a href="https://adsmek.github.io/english.html">Статьи на </a></li>
                         </ul>
                 </div><!-- /.blogroll -->
                 <div class="social">
