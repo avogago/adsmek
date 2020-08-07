@@ -1,6 +1,6 @@
 
 
-##Understand Me
+## = = = Understand Me = = =
 
 # [adsmek.github.io](https://adsmek.github.io/)
 
@@ -10,7 +10,7 @@
  + [https://stackedit.io/app#](https://stackedit.io/app#) Редактор Markdown
  + [https://html-cleaner.com/](https://html-cleaner.com/) HTML-cleaner
 
-#обновить контент:
+# = = = обновить контент: = = =
 
 	venv\Scripts\activate    
 
