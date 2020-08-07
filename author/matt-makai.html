@@ -212,48 +212,56 @@ Head back to the browser and refresh to view the updated configuration.</p>
 Changing the site theme is really where you can turn a standard blog into whatever type of site you want to build. While the default Pelican configuration creates a blog template, you do not need to have a chronological structure if it is not right for your website.</p>
 <p>Create a new directory under your project directory that is named theme. Within theme create another directory named templates. templates is where our Jinja2 templates will be stored and can override the default theme.</p>
 <p>Start by creating a file named base.html which will store the boilerplate used by templates across the site.</p>
-<!DOCTYPE html>
-<html lang="en">
-<head>
- <title>{% block title %}{% endblock %}</title>
-</head>
-<body>
- <div class="container">
- {% block content %}{% endblock %}
- </div>
-</body>
-</html>
-Within theme/templates create a file named article.html that will have a different theme for blog posts than the rest of the site. Fill article.html with the following Jinja2 markup.
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+ <span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+ <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
 
-<p>{% extends "base.html" %}
-{% block title %}{{ article.title }}{% endblock %}
-{% block content %}
-<div class="row">
- <div class="col-md-8">
- <h1>{{ article.title }}</h1>
- <label>Posted on <strong>{{ article.date }}</strong></label>
- {{ article.content }}
- </div>
-</div>
-{% endblock %}
-Next we will use a Jinja2 template to override the default index.html main page. Again within the theme/templates directory, create a file named index.html with the following markup.</p>
-<p>{% extends "base.html" %}
-{% block title %}{{ SITENAME }}{% endblock %}
-{% block content %}
-<div class="row">
- <div class="col-md-8">
- <h1>{{ SITENAME }}</h1>
- {% for article in articles %}
- <h2><a href="/{{ article.slug }}.html">{{ article.title }}</a></h2>
- <label>Posted on <strong>{{ article.date }}</strong></label>
- {{ article.content|truncate(110) }}
- {% else %}
+
+<p>Within theme/templates create a file named article.html that will have a different theme for blog posts than the rest of the site. Fill article.html with the following Jinja2 markup.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">article.title</span> <span class="cp">}}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-8&quot;</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">article.title</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
+ <span class="nt">&lt;label&gt;</span>Posted on <span class="nt">&lt;strong&gt;</span><span class="cp">{{</span> <span class="nv">article.date</span> <span class="cp">}}</span><span class="nt">&lt;/strong&gt;&lt;/label&gt;</span>
+ <span class="cp">{{</span> <span class="nv">article.content</span> <span class="cp">}}</span>
+ <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div>
+
+
+<p>Next we will use a Jinja2 template to override the default index.html main page. Again within the theme/templates directory, create a file named index.html with the following markup.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">SITENAME</span> <span class="cp">}}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-8&quot;</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">SITENAME</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
+ <span class="cp">{%</span> <span class="k">for</span> <span class="nv">article</span> <span class="k">in</span> <span class="nv">articles</span> <span class="cp">%}</span>
+ <span class="nt">&lt;h2&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/</span><span class="cp">{{</span> <span class="nv">article.slug</span> <span class="cp">}}</span><span class="s">.html&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span> <span class="nv">article.title</span> <span class="cp">}}</span><span class="nt">&lt;/a&gt;&lt;/h2&gt;</span>
+ <span class="nt">&lt;label&gt;</span>Posted on <span class="nt">&lt;strong&gt;</span><span class="cp">{{</span> <span class="nv">article.date</span> <span class="cp">}}</span><span class="nt">&lt;/strong&gt;&lt;/label&gt;</span>
+ <span class="cp">{{</span> <span class="nv">article.content</span><span class="o">|</span><span class="nf">truncate</span><span class="o">(</span><span class="m">110</span><span class="o">)</span> <span class="cp">}}</span>
+ <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
  No posts yet!
- {% endfor %}
- </div>
-</div>
-{% endblock %}
-Regenerate the site and make sure you are serving it with the development server or the python -m http.server command.</p>
+ <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+ <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div>
+
+
+<p>Regenerate the site and make sure you are serving it with the development server or the python -m http.server command.</p>
 <p>Make sure to use the new -t theme flag to specify that the Jinja2 templates within the theme directory should be applied to the site.</p>
 <p>pelican -s pelicanconf.py -o output -t theme content
 Go to localhost:8000 and refresh the page. The styling on the main page is now different because it uses the index.html theme.</p>
@@ -261,11 +269,13 @@ Go to localhost:8000 and refresh the page. The styling on the main page is now d
 <p>Click on the title of the Gunship post. This page uses the article.html template, although it's hard to tell because there is no CSS applied to the page.</p>
 <p>Articles have an entirely different theme based on article.html markup.</p>
 <p>Pretty sparse! We can at least add the Bootstrap CSS to the HTML to align our content.</p>
-<p>Within base.html, add the following line for Bootstrap under <title>{% block title %}{% endblock %}</title> and above </head>.</p>
-<!-- Latest compiled and minified Bootstrap CSS -->
+<p>Within <code>base.html</code>, add the following line for Bootstrap under <code>&lt;title&gt;{% block title %}{% endblock %}&lt;/title&gt;</code> and above <code>&lt;/head&gt;</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="err">&lt;!-- Latest compiled and minified Bootstrap CSS --&gt;</span>
+<span class="err">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot; integrity=&quot;sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u&quot; crossorigin=&quot;anonymous&quot;&gt;</span>
+</code></pre></div>
 
-<p><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-Regenerate the site and refresh the Gunship page.</p>
+
+<p>Regenerate the site and refresh the Gunship page.</p>
 <p>Articles page after Bootstrap CSS has been added.</p>
 <p>Well at least our design has moved from 1996 to 2001. I am sure you can do a whole lot more to improve your own site's design.</p>
 <p>The new base.html does not provide much of a theme yet but it at least provides a fresh start for completely customized sites.</p>
@@ -282,6 +292,7 @@ You generated your first Pelican static website using Markdown and Jinja2. Addit
                             <li><a href="https://adsmek.github.io">adsmek</a></li>
                             <li><a href="https://github.com/Adsmek/Adsmek.github.io">перейти в репозиторий</a></li>
                             <li><a href="https://stackedit.io/app#">Markdown онлайн</a></li>
+                            <li><a href="https://adsmek.github.io/spravka.html">Справка</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
                 <div class="social">
