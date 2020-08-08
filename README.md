@@ -7,9 +7,10 @@
 </head>
 
 <body id="index" class="home">
-<a href="http://github.com/adsmek/">
+<!-- <a href="http://github.com/adsmek/">
 <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
 </a>
+ -->
         <header id="banner" class="body">
                 <h1><a href="https://adsmek.github.io/">Adsmek </a></h1>
                 <nav><ul>
@@ -24,7 +25,7 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="https://adsmek.github.io/readmemd.html" rel="bookmark"
+        <a href="https://adsmek.github.io/drafts/readmemd.html" rel="bookmark"
            title="Permalink to README.md">README.md</a></h1>
     </header>
 
