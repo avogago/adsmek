@@ -31,7 +31,7 @@
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2020-08-10T02:20:46.739232+02:00">
+        <abbr class="published" title="2020-08-10T02:23:19.547496+02:00">
                 Published: Пн 10 Август 2020
         </abbr>
 
@@ -40,9 +40,7 @@
         </address>
 <p>In <a href="./category/adsmek.html">Adsmek</a>.</p>
 
-</footer><!-- /.post-info -->      <div class="highlight"><pre><span></span><code><span class="nt">&lt;style</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
-.entry-content .post-info{display:none}
-<span class="nt">&lt;/style&gt;</span>
+</footer><!-- /.post-info -->      <div class="highlight"><pre><span></span><code>{! <span class="nt">&lt;style</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>.entry-content .post-info{display:none}<span class="nt">&lt;/style&gt;</span> !}
 </code></pre></div>
 
 
