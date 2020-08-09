@@ -31,7 +31,7 @@
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2020-08-10T02:10:24.300772+02:00">
+        <abbr class="published" title="2020-08-10T02:20:46.739232+02:00">
                 Published: Пн 10 Август 2020
         </abbr>
 
@@ -47,9 +47,6 @@
 
 
 <h2><a href="https://adsmek.github.io/pages/kozarada.html">Kozarada</a></h2>
-<p>123</p>
-<p><img alt="Kozarada · Начало концерта 16:00 ·  2019 год · Просмотры: 153" src="https://adsmek.github.io/pages/kozarada.html">(https://scontent-cph2-1.xx.fbcdn.net/v/t15.5256-10/s640x640/64483647_399395037338155_4871404967149174784_n.jpg?_nc_cat=107&amp;_nc_sid=ad6a45&amp;_nc_ohc=UaAza8kMSJ8AX-GeEV1&amp;_nc_ht=scontent-cph2-1.xx&amp;oh=9c98022d50aa81e56f3d0678dbf4ccca&amp;oe=5F51F705)</p>
-<p>321</p>
 <p><img alt="Kozarada · Начало концерта 16:00 ·  2019 год · Просмотры: 153" src="https://scontent-cph2-1.xx.fbcdn.net/v/t15.5256-10/s640x640/64483647_399395037338155_4871404967149174784_n.jpg?_nc_cat=107&amp;_nc_sid=ad6a45&amp;_nc_ohc=UaAza8kMSJ8AX-GeEV1&amp;_nc_ht=scontent-cph2-1.xx&amp;oh=9c98022d50aa81e56f3d0678dbf4ccca&amp;oe=5F51F705">(https://adsmek.github.io/pages/kozarada.html)</p>
 <h2><a href="https://adsmek.github.io/">adsmek.github.io</a></h2>
 <ul>
