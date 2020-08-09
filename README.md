@@ -31,7 +31,7 @@
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2020-08-10T02:07:21.473522+02:00">
+        <abbr class="published" title="2020-08-10T02:10:24.300772+02:00">
                 Published: Пн 10 Август 2020
         </abbr>
 
@@ -47,10 +47,10 @@
 
 
 <h2><a href="https://adsmek.github.io/pages/kozarada.html">Kozarada</a></h2>
-<p><img alt="Kozarada · Начало концерта 16:00 ·  2019 год · Просмотры: 153" src="https://www.facebook.com/pg/kozarada.live/videos/">
-(https://camo.githubusercontent.com/7f85ca746213c140e6a9035b6b77dac7e662d4a1/68747470733a2f2f73636f6e74656e742d637068322d312e78782e666263646e2e6e65742f762f7431352e353235362d31302f73363430783634302f36343438333634375f3339393339353033373333383135355f343837313430343936373134393137343738345f6e2e6a70673f5f6e635f6361743d313037265f6e635f7369643d616436613435265f6e635f6f68633d5561417a61386b4d534a3841582d4765455631265f6e635f68743d73636f6e74656e742d637068322d312e7878266f683d3963393830323264353061613831653536663364303637386462663463636361266f653d3546353146373035)</p>
-<p>321</p>
+<p>123</p>
 <p><img alt="Kozarada · Начало концерта 16:00 ·  2019 год · Просмотры: 153" src="https://adsmek.github.io/pages/kozarada.html">(https://scontent-cph2-1.xx.fbcdn.net/v/t15.5256-10/s640x640/64483647_399395037338155_4871404967149174784_n.jpg?_nc_cat=107&amp;_nc_sid=ad6a45&amp;_nc_ohc=UaAza8kMSJ8AX-GeEV1&amp;_nc_ht=scontent-cph2-1.xx&amp;oh=9c98022d50aa81e56f3d0678dbf4ccca&amp;oe=5F51F705)</p>
+<p>321</p>
+<p><img alt="Kozarada · Начало концерта 16:00 ·  2019 год · Просмотры: 153" src="https://scontent-cph2-1.xx.fbcdn.net/v/t15.5256-10/s640x640/64483647_399395037338155_4871404967149174784_n.jpg?_nc_cat=107&amp;_nc_sid=ad6a45&amp;_nc_ohc=UaAza8kMSJ8AX-GeEV1&amp;_nc_ht=scontent-cph2-1.xx&amp;oh=9c98022d50aa81e56f3d0678dbf4ccca&amp;oe=5F51F705">(https://adsmek.github.io/pages/kozarada.html)</p>
 <h2><a href="https://adsmek.github.io/">adsmek.github.io</a></h2>
 <ul>
 <li><a href="https://adsmek.github.io/unedtsarnd.html">Go to Adsmek site readme</a></li>
