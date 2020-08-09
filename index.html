@@ -26,7 +26,7 @@
                 <article>
                     <h1 class="entry-title"><a href="./nastroiki-osnovnye-nastroiki.html">Настройки / Основные настройки</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2020-08-09T04:17:15.943504+02:00">
+        <abbr class="published" title="2020-08-09T04:45:55.874029+02:00">
                 Published: Вс 09 Август 2020
         </abbr>
 
@@ -35,65 +35,80 @@
         </address>
 <p>In <a href="./category/translations.html">translations</a>.</p>
 
-</footer><!-- /.post-info --><h1>Settings<a href="#settings" title="Permalink to this headline">¶</a></h1>
-<p>Pelican is configurable thanks to a settings file you can pass to the command line:</p>
+</footer><!-- /.post-info --><h1>Настройки <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#settings" title="Постоянная ссылка на этот заголовок">¶</a></h1>
+<p>Пеликан настраивается благодаря файлу настроек, который вы можете передать в командную строку:</p>
 <div class="highlight"><pre><span></span><code><span class="err">pelican content -s path/to/your/pelicanconf.py</span>
 </code></pre></div>
 
 
-<p>If you used the  <code>pelican-quickstart</code>  command, your primary settings file will be named  <code>pelicanconf.py</code>  by default.</p>
+<p>Если вы использовали эту <code>pelican-quickstart</code> команду, ваш основной файл настроек будет иметь имя <code>pelicanconf.py</code> по умолчанию.</p>
 <blockquote>
-<p>Note</p>
-<p>When experimenting with different settings (especially the metadata
-ones) caching may interfere and the changes may not be visible. In
-such cases disable caching with  <code>LOAD_CONTENT_CACHE  =  False</code>  or
-use the  <code>--ignore-cache</code>  command-line switch.</p>
+<p>Заметка</p>
+<p>При экспериментировании с разными настройками (особенно с метаданными) кеширование может мешать, и изменения могут быть не видны. В таких случаях отключите кеширование <code>LOAD_CONTENT_CACHE = False</code> или используйте <code>--ignore-cache</code> переключатель командной строки.</p>
 </blockquote>
-<p>Settings are configured in the form of a Python module (a file). There is an  <a href="https://github.com/getpelican/pelican/raw/master/samples/pelican.conf.py">example settings file</a>  available for reference.</p>
-<p>To see a list of current settings in your environment, including both default and any customized values, run the following command (append one or more specific setting names as arguments to see values for those settings only):</p>
-<p>pelican --print-settings</p>
-<p>All the setting identifiers must be set in all-caps, otherwise they will not be processed. Setting values that are numbers (5, 20, etc.), booleans (True, False, None, etc.), dictionaries, or tuples should  <em>not</em>  be enclosed in quotation marks. All other values (i.e., strings)  <em>must</em>  be enclosed in quotation marks.</p>
-<p>Unless otherwise specified, settings that refer to paths can be either absolute or relative to the configuration file. The settings you define in the configuration file will be passed to the templates, which allows you to use your settings to add site-wide content.</p>
-<p>Here is a list of settings for Pelican:</p>
-<h2>Basic settings<a href="#basic-settings" title="Permalink to this headline">¶</a></h2>
+<p>Настройки настраиваются в виде модуля Python (файла). Для <a href="https://github.com/getpelican/pelican/raw/master/samples/pelican.conf.py">справки</a> доступен <a href="https://github.com/getpelican/pelican/raw/master/samples/pelican.conf.py">пример файла настроек</a> .</p>
+<p>Чтобы просмотреть список текущих настроек в вашей среде, включая значения по умолчанию и любые пользовательские значения, выполните следующую команду (добавьте одно или несколько конкретных имен настроек в качестве аргументов, чтобы увидеть значения только для этих настроек):</p>
+<div class="highlight"><pre><span></span><code><span class="err">pelican --print-settings</span>
+</code></pre></div>
+
+
+<p>Все идентификаторы настроек должны быть написаны заглавными буквами, иначе они не будут обработаны. Значения настройки, которые являются числами (5, 20 и т. Д.), Логическими (True, False, None и т. Д.), Словарями или кортежами, <em>не</em> должны заключаться в кавычки. Все остальные значения (например, строки) <em>должны</em> быть заключены в кавычки.</p>
+<p>Если не указано иное, настройки, относящиеся к путям, могут быть абсолютными или относительными по отношению к файлу конфигурации. Настройки, которые вы определяете в файле конфигурации, будут переданы в шаблоны, что позволит вам использовать ваши настройки для добавления контента всего сайта.</p>
+<p>Вот список настроек Пеликана:</p>
+<h2>Основные настройки <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#basic-settings" title="Постоянная ссылка на этот заголовок">¶</a></h2>
 <p><code>USE_FOLDER_AS_CATEGORY = True</code></p>
-<p>When you don’t specify a category in your post metadata, set this setting to  <code>True</code>, and organize your articles in subfolders, the subfolder will become the category of your post. If set to  <code>False</code>,  <code>DEFAULT_CATEGORY</code>  will be used as a fallback.</p>
+<p>Если вы не укажете категорию в метаданных вашего сообщения, установите для этого параметра значение <code>True</code>и организуете свои статьи по подпапкам, подпапка станет категорией вашего сообщения. Если установлено <code>False</code>, <code>DEFAULT_CATEGORY</code> будет использоваться как резерв.</p>
 <p><code>DEFAULT_CATEGORY = 'misc'</code></p>
-<p>The default category to fall back on.</p>
+<p>Категория по умолчанию, к которой следует вернуться.</p>
 <p><code>DISPLAY_PAGES_ON_MENU = True</code></p>
-<p>Whether to display pages on the menu of the template. Templates may or may not honor this setting.</p>
+<p>Отображать ли страницы в меню шаблона. Шаблоны могут или не могут соблюдать этот параметр.</p>
 <p><code>DISPLAY_CATEGORIES_ON_MENU = True</code></p>
-<p>Whether to display categories on the menu of the template. Templates may or not honor this setting.</p>
+<p>Отображать ли категории в меню шаблона. Шаблоны могут или не учитывать этот параметр.</p>
 <p><code>DOCUTILS_SETTINGS = {}</code></p>
-<p>Extra configuration settings for the docutils publisher (applicable only to reStructuredText). See  <a href="http://docutils.sourceforge.net/docs/user/config.html">Docutils Configuration</a>  settings for more details.</p>
+<p>Дополнительные параметры конфигурации для издателя документов (применимы только к reStructuredText). Дополнительные <a href="http://docutils.sourceforge.net/docs/user/config.html">сведения</a> см. В разделе <a href="http://docutils.sourceforge.net/docs/user/config.html">Параметры конфигурации Docutils</a> .</p>
 <p><code>DELETE_OUTPUT_DIRECTORY = False</code></p>
-<p>Delete the output directory, and  <strong>all</strong>  of its contents, before generating new files. This can be useful in preventing older, unnecessary files from persisting in your output. However,  <strong>this is a destructive setting and should be handled with extreme care.</strong></p>
+<p>Перед созданием новых файлов удалите каталог вывода и <strong>все</strong> его содержимое. Это может быть полезно для предотвращения сохранения старых ненужных файлов в вашем выводе. Однако <strong>это деструктивная обстановка, и с ней нужно обращаться с особой осторожностью.</strong></p>
 <p><code>OUTPUT_RETENTION = []</code></p>
-<p>A list of filenames that should be retained and not deleted from the output directory. One use case would be the preservation of version control data.</p>
-<p>Example:</p>
-<p>OUTPUT_RETENTION = [".hg", ".git", ".bzr"]</p>
+<p>Список имен файлов, которые следует сохранить и не удалять из выходного каталога. Одним из вариантов использования может быть сохранение данных контроля версий.</p>
+<p>Пример:</p>
+<div class="highlight"><pre><span></span><code><span class="err">OUTPUT_RETENTION = [&quot;.hg&quot;, &quot;.git&quot;, &quot;.bzr&quot;]</span>
+</code></pre></div>
+
+
 <p><code>JINJA_ENVIRONMENT = {'trim_blocks': True, 'lstrip_blocks': True}</code></p>
-<p>A dictionary of custom Jinja2 environment variables you want to use. This also includes a list of extensions you may want to include. See  <a href="http://jinja.pocoo.org/docs/dev/api/#jinja2.Environment">Jinja Environment documentation</a>.</p>
+<p>Словарь пользовательских переменных среды Jinja2, которые вы хотите использовать. Сюда также входит список расширений, которые вы, возможно, захотите включить. См. <a href="http://jinja.pocoo.org/docs/dev/api/#jinja2.Environment">Документацию по среде Jinja</a> .</p>
 <p><code>JINJA_FILTERS = {}</code></p>
-<p>A dictionary of custom Jinja2 filters you want to use. The dictionary should map the filtername to the filter function.</p>
-<p>Example:</p>
-<p>JINJA_FILTERS = {'urlencode': urlencode_filter}</p>
-<p>See  <a href="http://jinja.pocoo.org/docs/api/#custom-filters">Jinja custom filters documentation</a>.</p>
+<p>Словарь пользовательских фильтров Jinja2, которые вы хотите использовать. Словарь должен сопоставлять имя фильтра с функцией фильтра.</p>
+<p>Пример:</p>
+<div class="highlight"><pre><span></span><code><span class="err">JINJA_FILTERS = {&#39;urlencode&#39;: urlencode_filter}</span>
+</code></pre></div>
+
+
+<p>См. <a href="http://jinja.pocoo.org/docs/api/#custom-filters">Документацию по пользовательским фильтрам Jinja</a> .</p>
 <p><code>LOG_FILTER = []</code></p>
-<p>A list of tuples containing the logging level (up to  <code>warning</code>) and the message to be ignored.</p>
-<p>Example:</p>
-<p>LOG_FILTER = [(logging.WARN, 'TAG_SAVE_AS is set to False')]</p>
+<p>Список кортежей, содержащий уровень ведения журнала (до <code>warning</code>) и сообщение, которое следует игнорировать.</p>
+<p>Пример:</p>
+<div class="highlight"><pre><span></span><code><span class="err">LOG_FILTER = [(logging.WARN, &#39;TAG_SAVE_AS is set to False&#39;)]</span>
+</code></pre></div>
+
+
 <p><code>READERS = {}</code></p>
-<p>A dictionary of file extensions / Reader classes for Pelican to process or ignore.</p>
-<p>For example, to avoid processing .html files, set:</p>
-<p>READERS = {'html': None}</p>
-<p>To add a custom reader for the  <code>foo</code>  extension, set:</p>
-<p>READERS = {'foo': FooReader}</p>
+<p>Словарь расширений файлов / классов чтения, которые Пеликан обрабатывает или игнорирует.</p>
+<p>Например, чтобы избежать обработки файлов .html, установите:</p>
+<div class="highlight"><pre><span></span><code><span class="err">READERS = {&#39;html&#39;: None}</span>
+</code></pre></div>
+
+
+<p>Чтобы добавить пользовательский ридер для <code>foo</code> расширения, установите:</p>
+<div class="highlight"><pre><span></span><code><span class="err">READERS = {&#39;foo&#39;: FooReader}</span>
+</code></pre></div>
+
+
 <p><code>IGNORE_FILES = ['.#*']</code></p>
-<p>A list of glob patterns. Files and directories matching any of these patterns will be ignored by the processor. For example, the default  <code>['.#*']</code>  will ignore emacs lock files, and  <code>['__pycache__']</code>  would ignore Python 3’s bytecode caches.</p>
+<p>Список шаблонов глобусов. Файлы и каталоги, соответствующие любому из этих шаблонов, будут игнорироваться процессором. Например, по умолчанию <code>['.#*']</code> будут игнорироваться файлы блокировки emacs и <code>['__pycache__']</code> кеши байт-кода Python 3.</p>
 <p><code>MARKDOWN = {...}</code></p>
-<p>Extra configuration settings for the Markdown processor. Refer to the Python Markdown documentation’s  <a href="https://python-markdown.github.io/reference/#markdown">Options section</a>  for a complete list of supported options. The  <code>extensions</code>  option will be automatically computed from the  <code>extension_configs</code>  option.</p>
-<p>Defaults to:</p>
+<p>Дополнительные параметры конфигурации для процессора Markdown. Обратитесь к <a href="https://python-markdown.github.io/reference/#markdown">разделу</a> « <a href="https://python-markdown.github.io/reference/#markdown">Параметры»</a> документации Python Markdown для получения полного списка поддерживаемых параметров. <code>extensions</code> Опция будет автоматически вычисляется из <code>extension_configs</code> опции.</p>
+<p>По умолчанию:</p>
 <div class="highlight"><pre><span></span><code><span class="err">MARKDOWN = {</span>
 <span class="err">    &#39;extension_configs&#39;: {</span>
 <span class="err">        &#39;markdown.extensions.codehilite&#39;: {&#39;css_class&#39;: &#39;highlight&#39;},</span>
@@ -106,202 +121,221 @@ use the  <code>--ignore-cache</code>  command-line switch.</p>
 
 
 <blockquote>
-<p>Note</p>
-<p>The dictionary defined in your settings file will replace this default one.</p>
+<p>Заметка</p>
+<p>Словарь, определенный в вашем файле настроек, заменит этот словарь по умолчанию.</p>
 </blockquote>
 <p><code>OUTPUT_PATH = 'output/'</code></p>
-<p>Where to output the generated files.</p>
-<p><code>PATH</code><a href="#PATH" title="Permalink to this definition">¶</a></p>
-<p>Path to content directory to be processed by Pelican. If undefined, and content path is not specified via an argument to the  <code>pelican</code>  command, Pelican will use the current working directory.</p>
+<p>Куда выводить сгенерированные файлы.</p>
+<p><code>PATH</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#PATH" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Путь к каталогу содержимого, который будет обрабатывать Пеликан. Если не определено и путь к содержимому не указан в аргументе <code>pelican</code> команды, Pelican будет использовать текущий рабочий каталог.</p>
 <p><code>PAGE_PATHS = ['pages']</code></p>
-<p>A list of directories and files to look at for pages, relative to  <code>PATH</code>.</p>
+<p>Список каталогов и файлов для поиска страниц относительно <code>PATH</code>.</p>
 <p><code>PAGE_EXCLUDES = []</code></p>
-<p>A list of directories to exclude when looking for pages in addition to  <code>ARTICLE_PATHS</code>.</p>
+<p>Список каталогов, которые необходимо исключить при поиске страниц в дополнение к <code>ARTICLE_PATHS</code>.</p>
 <p><code>ARTICLE_PATHS = ['']</code></p>
-<p>A list of directories and files to look at for articles, relative to  <code>PATH</code>.</p>
+<p>Список каталогов и файлов для поиска статей относительно <code>PATH</code>.</p>
 <p><code>ARTICLE_EXCLUDES = []</code></p>
-<p>A list of directories to exclude when looking for articles in addition to  <code>PAGE_PATHS</code>.</p>
+<p>Список каталогов, которые следует исключить при поиске статей в дополнение к <code>PAGE_PATHS</code>.</p>
 <p><code>OUTPUT_SOURCES = False</code></p>
-<p>Set to True if you want to copy the articles and pages in their original format (e.g. Markdown or reStructuredText) to the specified  <code>OUTPUT_PATH</code>.</p>
+<p>Установите значение True, если вы хотите скопировать статьи и страницы в их исходном формате (например, Markdown или reStructuredText) в указанный <code>OUTPUT_PATH</code>.</p>
 <p><code>OUTPUT_SOURCES_EXTENSION = '.text'</code></p>
-<p>Controls the extension that will be used by the SourcesGenerator. Defaults to  <code>.text</code>. If not a valid string the default value will be used.</p>
+<p>Управляет расширением, которое будет использоваться SourcesGenerator. По умолчанию <code>.text</code>. Если строка недействительна, будет использоваться значение по умолчанию.</p>
 <p><code>PLUGINS = []</code></p>
-<p>The list of plugins to load. See  <a href="https://docs.getpelican.com/en/stable/plugins.html#plugins">Plugins</a>.</p>
+<p>Список плагинов для загрузки. См. <a href="https://docs.getpelican.com/en/stable/plugins.html#plugins">Плагины</a> .</p>
 <p><code>PLUGIN_PATHS = []</code></p>
-<p>A list of directories where to look for plugins. See  <a href="https://docs.getpelican.com/en/stable/plugins.html#plugins">Plugins</a>.</p>
+<p>Список каталогов, где искать плагины. См. <a href="https://docs.getpelican.com/en/stable/plugins.html#plugins">Плагины</a> .</p>
 <p><code>SITENAME = 'A Pelican Blog'</code></p>
-<p>Your site name</p>
-<p><code>SITEURL</code><a href="#SITEURL" title="Permalink to this definition">¶</a></p>
-<p>Base URL of your web site. Not defined by default, so it is best to specify your SITEURL; if you do not, feeds will not be generated with properly-formed URLs. If your site is available via HTTPS, this setting should begin with  <code>https://</code>  — otherwise use  <code>http://</code>. Then append your domain, with no trailing slash at the end. Example:  <code>SITEURL  =  'https://example.com'</code></p>
+<p>Название вашего сайта</p>
+<p><code>SITEURL</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#SITEURL" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Базовый URL-адрес вашего веб-сайта. Не определено по умолчанию, поэтому лучше указать ваш SITEURL; в противном случае каналы не будут создаваться с правильно сформированными URL-адресами. Если ваш сайт доступен через HTTPS, этот параметр должен начинаться с <code>https://</code> - в противном случае используйте <code>http://</code>. Затем добавьте свой домен без косой черты в конце. Пример: <code>SITEURL = 'https://example.com'</code></p>
 <p><code>STATIC_PATHS = ['images']</code></p>
-<p>A list of directories (relative to  <code>PATH</code>) in which to look for static files. Such files will be copied to the output directory without modification. Articles, pages, and other content source files will normally be skipped, so it is safe for a directory to appear both here and in  <code>PAGE_PATHS</code>  or  <code>ARTICLE_PATHS</code>. Pelican’s default settings include the “images” directory here.</p>
+<p>Список каталогов (относительно <code>PATH</code>), в которых нужно искать статические файлы. Такие файлы будут скопированы в выходной каталог без изменений. Статьи, страницы и другие исходные файлы контента обычно пропускаются, поэтому каталог может отображаться как здесь, так и в <code>PAGE_PATHS</code> или <code>ARTICLE_PATHS</code>. Настройки Пеликана по умолчанию включают сюда каталог «изображений».</p>
 <p><code>STATIC_EXCLUDES = []</code></p>
-<p>A list of directories to exclude when looking for static files.</p>
+<p>Список каталогов, которые нужно исключить при поиске статических файлов.</p>
 <p><code>STATIC_EXCLUDE_SOURCES = True</code></p>
-<p>If set to False, content source files will not be skipped when copying files found in  <code>STATIC_PATHS</code>. This setting is for backward compatibility with Pelican releases before version 3.5. It has no effect unless  <code>STATIC_PATHS</code>  contains a directory that is also in  <code>ARTICLE_PATHS</code>  or  <code>PAGE_PATHS</code>. If you are trying to publish your site’s source files, consider using the  <code>OUTPUT_SOURCES</code>  setting instead.</p>
+<p>Если установлено значение False, исходные файлы контента не будут пропускаться при копировании файлов, найденных в <code>STATIC_PATHS</code>. Этот параметр предназначен для обратной совместимости с выпусками Pelican до версии 3.5. Он не действует, если он не <code>STATIC_PATHS</code> содержит каталога, который также находится в <code>ARTICLE_PATHS</code> или <code>PAGE_PATHS</code>. Если вы пытаетесь опубликовать исходные файлы своего сайта, рассмотрите возможность использования <code>OUTPUT_SOURCES</code> вместо этого параметра.</p>
 <p><code>STATIC_CREATE_LINKS = False</code></p>
-<p>Create links instead of copying files. If the content and output directories are on the same device, then create hard links. Falls back to symbolic links if the output directory is on a different filesystem. If symlinks are created, don’t forget to add the  <code>-L</code>  or  <code>--copy-links</code>  option to rsync when uploading your site.</p>
+<p>Создавайте ссылки вместо копирования файлов. Если каталоги содержимого и вывода находятся на одном устройстве, создайте жесткие ссылки. Возвращается к символическим ссылкам, если выходной каталог находится в другой файловой системе. Если создаются символические ссылки, не забудьте добавить параметр <code>-L</code> или <code>--copy-links</code> в rsync при загрузке вашего сайта.</p>
 <p><code>STATIC_CHECK_IF_MODIFIED = False</code></p>
-<p>If set to  <code>True</code>, and  <code>STATIC_CREATE_LINKS</code>  is  <code>False</code>, compare mtimes of content and output files, and only copy content files that are newer than existing output files.</p>
+<p>Если установлено <code>True</code>, и <code>STATIC_CREATE_LINKS</code> есть <code>False</code>, сравнивайте время файлов содержимого и файлов вывода и копируйте только файлы содержимого, которые новее существующих файлов вывода.</p>
 <p><code>TYPOGRIFY = False</code></p>
-<p>If set to True, several typographical improvements will be incorporated into the generated HTML via the  <a href="https://pypi.python.org/pypi/typogrify">Typogrify</a>  library, which can be installed via:  <code>pip  install  typogrify</code></p>
+<p>Если установлено значение True, несколько типографских улучшений будут включены в сгенерированный HTML через библиотеку <a href="https://pypi.python.org/pypi/typogrify">Typogrify</a> , которую можно установить с помощью: <code>pip install typogrify</code></p>
 <p><code>TYPOGRIFY_IGNORE_TAGS = []</code></p>
-<p>A list of tags for Typogrify to ignore. By default Typogrify will ignore  <code>pre</code>  and  <code>code</code>  tags. This requires that Typogrify version 2.0.4 or later is installed</p>
+<p>Список тегов, которые Typogrify игнорирует. По умолчанию Typogrify будет игнорировать <code>pre</code> и <code>code</code> теги. Для этого требуется, чтобы была установлена ​​Typogrify версии 2.0.4 или более поздней.</p>
 <p><code>SUMMARY_MAX_LENGTH = 50</code></p>
-<p>When creating a short summary of an article, this will be the default length (measured in words) of the text created. This only applies if your content does not otherwise specify a summary. Setting to  <code>None</code>  will cause the summary to be a copy of the original content.</p>
+<p>При создании краткого резюме статьи это будет длина созданного текста по умолчанию (измеренная в словах). Это применимо только в том случае, если в вашем контенте не указано иное резюме. При установке значения <code>None</code> сводка будет копией исходного содержимого.</p>
 <p><code>WITH_FUTURE_DATES = True</code></p>
-<p>If disabled, content with dates in the future will get a default status of  <code>draft</code>. See  <a href="#reading-only-modified-content">Reading only modified content</a>  for caveats.</p>
+<p>Если этот параметр отключен, контент с датами в будущем получит статус по умолчанию <code>draft</code>. См. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#reading-only-modified-content">Предостережения в</a> разделе « <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#reading-only-modified-content">Только чтение измененного содержимого»</a> .</p>
 <p><code>INTRASITE_LINK_REGEX = '[{|](?P&lt;what&gt;.*?)[|}]'</code></p>
-<p>Regular expression that is used to parse internal links. Default syntax when linking to internal files, tags, etc., is to enclose the identifier, say  <code>filename</code>, in  <code>{}</code>  or  <code>||</code>. Identifier between  <code>{</code>  and  <code>}</code>  goes into the  <code>what</code>  capturing group. For details see  <a href="https://docs.getpelican.com/en/stable/content.html#ref-linking-to-internal-content">Linking to internal content</a>.</p>
+<p>Регулярное выражение, которое используется для анализа внутренних ссылок. Синтаксис по умолчанию при связывании с внутренними файлами, тегами и т. Д. Заключается в заключении идентификатора, скажем <code>filename</code>, в <code>{}</code> или <code>||</code>. Идентификатор между <code>{</code> и <code>}</code> входит в группу <code>what</code> захвата. Дополнительные сведения см. В разделе « <a href="https://docs.getpelican.com/en/stable/content.html#ref-linking-to-internal-content">Ссылки на внутреннее содержимое»</a> .</p>
 <p><code>PYGMENTS_RST_OPTIONS = []</code></p>
-<p>A list of default Pygments settings for your reStructuredText code blocks. See  <a href="https://docs.getpelican.com/en/stable/content.html#internal-pygments-options">Syntax highlighting</a>  for a list of supported options.</p>
+<p>Список настроек Pygments по умолчанию для ваших блоков кода reStructuredText. Список поддерживаемых параметров см. В разделе « <a href="https://docs.getpelican.com/en/stable/content.html#internal-pygments-options">Подсветка синтаксиса»</a> .</p>
 <p><code>SLUGIFY_SOURCE = 'title'</code></p>
-<p>Specifies where you want the slug to be automatically generated from. Can be set to  <code>title</code>  to use the ‘Title:’ metadata tag or  <code>basename</code>  to use the article’s file name when creating the slug.</p>
+<p>Указывает, откуда вы хотите, чтобы слаг был автоматически сгенерирован. Может быть установлено значение <code>title</code> для использования тега метаданных «Title:» или <code>basename</code> для использования имени файла статьи при создании заголовка.</p>
 <p><code>CACHE_CONTENT = False</code></p>
-<p>If  <code>True</code>, saves content in caches. See  <a href="#reading-only-modified-content">Reading only modified content</a>  for details about caching.</p>
+<p>Если <code>True</code>, сохраняет содержимое в кешах. Подробнее о кэшировании см. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#reading-only-modified-content">Чтение только измененного содержимого</a> .</p>
 <p><code>CONTENT_CACHING_LAYER = 'reader'</code></p>
-<p>If set to  <code>'reader'</code>, save only the raw content and metadata returned by readers. If set to  <code>'generator'</code>, save processed content objects.</p>
+<p>Если установлено <code>'reader'</code>, сохранять только необработанный контент и метаданные, возвращаемые читателями. Если установлено <code>'generator'</code>, сохранять обработанные объекты содержимого.</p>
 <p><code>CACHE_PATH = 'cache'</code></p>
-<p>Directory in which to store cache files.</p>
+<p>Каталог, в котором хранятся файлы кеша.</p>
 <p><code>GZIP_CACHE = True</code></p>
-<p>If  <code>True</code>, use gzip to (de)compress the cache files.</p>
+<p>Если <code>True</code>, используйте gzip для (де) сжатия файлов кеша.</p>
 <p><code>CHECK_MODIFIED_METHOD = 'mtime'</code></p>
-<p>Controls how files are checked for modifications.</p>
+<p>Управляет тем, как файлы проверяются на наличие изменений.</p>
 <p><code>LOAD_CONTENT_CACHE = False</code></p>
-<p>If  <code>True</code>, load unmodified content from caches.</p>
+<p>Если <code>True</code>загружать неизмененный контент из кешей.</p>
 <p><code>WRITE_SELECTED = []</code></p>
-<p>If this list is not empty,  <strong>only</strong>  output files with their paths in this list are written. Paths should be either absolute or relative to the current Pelican working directory. For possible use cases see  <a href="#writing-only-selected-content">Writing only selected content</a>.</p>
+<p>Если этот список не пуст, записываются <strong>только</strong> выходные файлы с их путями в этом списке. Пути должны быть абсолютными или относительными к текущему рабочему каталогу Pelican. Возможные варианты использования см. В разделе <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#writing-only-selected-content">Написание только выбранного содержимого</a> .</p>
 <p><code>FORMATTED_FIELDS = ['summary']</code></p>
-<p>A list of metadata fields containing reST/Markdown content to be parsed and translated to HTML.</p>
+<p>Список полей метаданных, содержащих контент reST / Markdown для анализа и перевода в HTML.</p>
 <p><code>PORT = 8000</code></p>
-<p>The TCP port to serve content from the output folder via HTTP when pelican is run with –listen</p>
+<p>Порт TCP для обслуживания содержимого из выходной папки через HTTP, когда пеликан запускается с –listen</p>
 <p><code>BIND = ''</code></p>
-<p>The IP to which to bind the HTTP server.</p>
-<h2>URL settings<a href="#url-settings" title="Permalink to this headline">¶</a></h2>
-<p>The first thing to understand is that there are currently two supported methods for URL formation:  <em>relative</em>  and  <em>absolute</em>. Relative URLs are useful when testing locally, and absolute URLs are reliable and most useful when publishing. One method of supporting both is to have one Pelican configuration file for local development and another for publishing. To see an example of this type of setup, use the  <code>pelican-quickstart</code>  script as described in the  <a href="https://docs.getpelican.com/en/stable/install.html">Installation</a>  section, which will produce two separate configuration files for local development and publishing, respectively.</p>
-<p>You can customize the URLs and locations where files will be saved. The  <code>*_URL</code>  and  <code>*_SAVE_AS</code>  variables use Python’s format strings. These variables allow you to place your articles in a location such as  <code>{slug}/index.html</code>  and link to them as  <code>{slug}</code>  for clean URLs (see example below). These settings give you the flexibility to place your articles and pages anywhere you want.</p>
-<p>Note</p>
-<p>If you specify a  <code>datetime</code>  directive, it will be substituted using the input files’ date metadata attribute. If the date is not specified for a particular file, Pelican will rely on the file’s  <code>mtime</code>  timestamp. Check the  <a href="https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior">Python datetime documentation</a>  for more information.</p>
-<p>Also, you can use other file metadata attributes as well:</p>
-<ul>
-<li>slug</li>
-<li>date</li>
-<li>lang</li>
-<li>author</li>
-<li>category</li>
-</ul>
-<p>Example usage:</p>
-<p>ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/'
-ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
-PAGE_URL = 'pages/{slug}/'
-PAGE_SAVE_AS = 'pages/{slug}/index.html'</p>
-<p>This would save your articles into something like  <code>/posts/2011/Aug/07/sample-post/index.html</code>, save your pages into  <code>/pages/about/index.html</code>, and render them available at URLs of  <code>/posts/2011/Aug/07/sample-post/</code>  and  <code>/pages/about/</code>, respectively.</p>
+<p>IP-адрес, к которому нужно привязать HTTP-сервер.</p>
+<h2>Настройки URL <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#url-settings" title="Постоянная ссылка на этот заголовок">¶</a></h2>
+<p>Первое, что нужно понять, это то, что в настоящее время существует два поддерживаемых метода формирования URL: <em>относительный</em> и <em>абсолютный</em> . Относительные URL-адреса полезны при локальном тестировании, а абсолютные URL-адреса надежны и наиболее полезны при публикации. Один из способов поддержки обоих - иметь один файл конфигурации Pelican для локальной разработки, а другой - для публикации. Чтобы увидеть пример такого типа установки, используйте <code>pelican-quickstart</code> сценарий, описанный в разделе « <a href="https://docs.getpelican.com/en/stable/install.html">Установка</a> », который создаст два отдельных файла конфигурации для локальной разработки и публикации соответственно.</p>
+<p>Вы можете настроить URL-адреса и места, где будут сохраняться файлы. <code>*_URL</code> И <code>*_SAVE_AS</code> переменные используют строки форматирования языка Python. Эти переменные позволяют размещать ваши статьи в таком месте, как <code>{slug}/index.html</code> и ссылки на них, как <code>{slug}</code> для чистых URL-адресов (см. Пример ниже). Эти настройки дают вам возможность размещать свои статьи и страницы в любом месте.</p>
+<blockquote>
+<p>Заметка</p>
+<p>Если вы укажете <code>datetime</code> директиву, она будет заменена атрибутом метаданных даты входных файлов. Если дата не указана для конкретного файла, Pelican будет полагаться на временную <code>mtime</code> метку файла . Проверьте <a href="https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior">DATETIME документации Python</a> для получения дополнительной информации.</p>
+</blockquote>
+<h2>Кроме того, вы можете использовать и другие атрибуты метаданных файла:</h2>
+<div class="highlight"><pre><span></span><code><span class="err">-   slug // слизень</span>
+<span class="err">-   date // Дата</span>
+<span class="err">-   lang // языки</span>
+<span class="err">-   author // автор</span>
+<span class="err">-   category // категория</span>
+</code></pre></div>
+
+
+<p>Пример использования:</p>
+<div class="highlight"><pre><span></span><code><span class="err">ARTICLE_URL = &#39;posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/&#39;</span>
+<span class="err">ARTICLE_SAVE_AS = &#39;posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html&#39;</span>
+<span class="err">PAGE_URL = &#39;pages/{slug}/&#39;</span>
+<span class="err">PAGE_SAVE_AS = &#39;pages/{slug}/index.html&#39;</span>
+</code></pre></div>
+
+
+<p>Это сохранит ваши статьи во что-то вроде <code>/posts/2011/Aug/07/sample-post/index.html</code>, сохранит ваши страницы <code>/pages/about/index.html</code>и сделает их доступными по URL-адресам <code>/posts/2011/Aug/07/sample-post/</code> и <code>/pages/about/</code>, соответственно.</p>
 <p><code>RELATIVE_URLS = False</code></p>
-<p>Defines whether Pelican should use document-relative URLs or not. Only set this to  <code>True</code>  when developing/testing and only if you fully understand the effect it can have on links/feeds.</p>
+<p>Определяет, должен ли Пеликан использовать URL-адреса, относящиеся к документу, или нет. Установите это значение только <code>True</code> при разработке / тестировании и только в том случае, если вы полностью понимаете, какое влияние это может иметь на ссылки / каналы.</p>
 <p><code>ARTICLE_URL = '{slug}.html'</code></p>
-<p>The URL to refer to an article.</p>
+<p>URL для ссылки на статью.</p>
 <p><code>ARTICLE_SAVE_AS = '{slug}.html'</code></p>
-<p>The place where we will save an article.</p>
+<p>Место, где мы сохраним статью.</p>
 <p><code>ARTICLE_LANG_URL = '{slug}-{lang}.html'</code></p>
-<p>The URL to refer to an article which doesn’t use the default language.</p>
+<p>URL-адрес для ссылки на статью, которая не использует язык по умолчанию.</p>
 <p><code>ARTICLE_LANG_SAVE_AS = '{slug}-{lang}.html'</code></p>
-<p>The place where we will save an article which doesn’t use the default language.</p>
+<p>Место, где мы сохраним статью, которая не использует язык по умолчанию.</p>
 <p><code>DRAFT_URL = 'drafts/{slug}.html'</code></p>
-<p>The URL to refer to an article draft.</p>
+<p>URL для ссылки на черновик статьи.</p>
 <p><code>DRAFT_SAVE_AS = 'drafts/{slug}.html'</code></p>
-<p>The place where we will save an article draft.</p>
+<p>Место, где мы сохраним черновик статьи.</p>
 <p><code>DRAFT_LANG_URL = 'drafts/{slug}-{lang}.html'</code></p>
-<p>The URL to refer to an article draft which doesn’t use the default language.</p>
+<p>URL-адрес для ссылки на черновик статьи, в котором не используется язык по умолчанию.</p>
 <p><code>DRAFT_LANG_SAVE_AS = 'drafts/{slug}-{lang}.html'</code></p>
-<p>The place where we will save an article draft which doesn’t use the default language.</p>
+<p>Место, где мы сохраним черновик статьи, на котором не используется язык по умолчанию.</p>
 <p><code>PAGE_URL = 'pages/{slug}.html'</code></p>
-<p>The URL we will use to link to a page.</p>
+<p>URL-адрес, который мы будем использовать для ссылки на страницу.</p>
 <p><code>PAGE_SAVE_AS = 'pages/{slug}.html'</code></p>
-<p>The location we will save the page. This value has to be the same as PAGE_URL or you need to use a rewrite in your server config.</p>
+<p>Место, где мы будем сохранять страницу. Это значение должно быть таким же, как PAGE_URL, иначе вам нужно будет перезаписать конфигурацию вашего сервера.</p>
 <p><code>PAGE_LANG_URL = 'pages/{slug}-{lang}.html'</code></p>
-<p>The URL we will use to link to a page which doesn’t use the default language.</p>
+<p>URL-адрес, который мы будем использовать для ссылки на страницу, которая не использует язык по умолчанию.</p>
 <p><code>PAGE_LANG_SAVE_AS = 'pages/{slug}-{lang}.html'</code></p>
-<p>The location we will save the page which doesn’t use the default language.</p>
+<p>Место, где мы будем сохранять страницу, которая не использует язык по умолчанию.</p>
 <p><code>DRAFT_PAGE_URL = 'drafts/pages/{slug}.html'</code></p>
-<p>The URL used to link to a page draft.</p>
+<p>URL-адрес, используемый для ссылки на черновик страницы.</p>
 <p><code>DRAFT_PAGE_SAVE_AS = 'drafts/pages/{slug}.html'</code></p>
-<p>The actual location a page draft is saved at.</p>
+<p>Фактическое место сохранения черновика страницы.</p>
 <p><code>DRAFT_PAGE_LANG_URL = 'drafts/pages/{slug}-{lang}.html'</code></p>
-<p>The URL used to link to a page draft which doesn’t use the default language.</p>
+<p>URL-адрес, используемый для ссылки на черновик страницы, на котором не используется язык по умолчанию.</p>
 <p><code>DRAFT_PAGE_LANG_SAVE_AS = 'drafts/pages/{slug}-{lang}.html'</code></p>
-<p>The actual location a page draft which doesn’t use the default language is saved at.</p>
+<p>Фактическое расположение, в котором сохраняется черновик страницы, на котором не используется язык по умолчанию.</p>
 <p><code>AUTHOR_URL = 'author/{slug}.html'</code></p>
-<p>The URL to use for an author.</p>
+<p>URL-адрес, используемый для автора.</p>
 <p><code>AUTHOR_SAVE_AS = 'author/{slug}.html'</code></p>
-<p>The location to save an author.</p>
+<p>Место для сохранения автора.</p>
 <p><code>CATEGORY_URL = 'category/{slug}.html'</code></p>
-<p>The URL to use for a category.</p>
+<p>URL-адрес для категории.</p>
 <p><code>CATEGORY_SAVE_AS = 'category/{slug}.html'</code></p>
-<p>The location to save a category.</p>
+<p>Место для сохранения категории.</p>
 <p><code>TAG_URL = 'tag/{slug}.html'</code></p>
-<p>The URL to use for a tag.</p>
+<p>URL-адрес, используемый для тега.</p>
 <p><code>TAG_SAVE_AS = 'tag/{slug}.html'</code></p>
-<p>The location to save the tag page.</p>
-<p>Note</p>
-<p>If you do not want one or more of the default pages to be created (e.g., you are the only author on your site and thus do not need an Authors page), set the corresponding  <code>*_SAVE_AS</code>  setting to  <code>''</code>  to prevent the relevant page from being generated.</p>
-<p>Pelican can optionally create per-year, per-month, and per-day archives of your posts. These secondary archives are disabled by default but are automatically enabled if you supply format strings for their respective  <code>_SAVE_AS</code>  settings. Period archives fit intuitively with the hierarchical model of web URLs and can make it easier for readers to navigate through the posts you’ve written over time.</p>
-<p>Example usage:</p>
-<p>YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
-MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'</p>
-<p>With these settings, Pelican will create an archive of all your posts for the year at (for instance)  <code>posts/2011/index.html</code>  and an archive of all your posts for the month at  <code>posts/2011/Aug/index.html</code>.</p>
-<p>Note</p>
-<p>Period archives work best when the final path segment is  <code>index.html</code>. This way a reader can remove a portion of your URL and automatically arrive at an appropriate archive of posts, without having to specify a page name.</p>
+<p>Место для сохранения страницы тега.</p>
+<blockquote>
+<p>Заметка</p>
+<p>Если вы не хотите, чтобы одна или несколько страниц по умолчанию
+создавались (например, вы являетесь единственным автором на своем
+сайте и, следовательно, не нуждаетесь в странице авторов), установите
+соответствующий <code>*_SAVE_AS</code> параметр, <code>''</code> чтобы предотвратить
+создание соответствующей страницы.</p>
+</blockquote>
+<p>При желании Пеликан может создавать архивы ваших сообщений за год, за месяц и за день. Эти вторичные архивы отключены по умолчанию, но автоматически включаются, если вы указываете строки формата для их соответствующих <code>_SAVE_AS</code> настроек. Архивы периодов интуитивно соответствуют иерархической модели веб-URL и могут облегчить читателям навигацию по сообщениям, которые вы написали с течением времени.</p>
+<p>Пример использования:</p>
+<div class="highlight"><pre><span></span><code><span class="err">YEAR_ARCHIVE_SAVE_AS = &#39;posts/{date:%Y}/index.html&#39;</span>
+<span class="err">MONTH_ARCHIVE_SAVE_AS = &#39;posts/{date:%Y}/{date:%b}/index.html&#39;</span>
+</code></pre></div>
+
+
+<p>С этими настройками Pelican создаст архив всех ваших сообщений за год в (например) <code>posts/2011/index.html</code> и архив всех ваших сообщений за месяц в <code>posts/2011/Aug/index.html</code>.</p>
+<blockquote>
+<p>Заметка</p>
+<p>Архивы периода работают лучше всего, когда это последний сегмент пути
+<code>index.html</code>. Таким образом, читатель может удалить часть вашего
+URL-адреса и автоматически перейти к соответствующему архиву сообщений
+без необходимости указывать имя страницы.</p>
+</blockquote>
 <p><code>YEAR_ARCHIVE_URL = ''</code></p>
-<p>The URL to use for per-year archives of your posts. Used only if you have the  <code>{url}</code>  placeholder in  <code>PAGINATION_PATTERNS</code>.</p>
+<p>URL-адрес для годовых архивов ваших сообщений. Используется, только если у вас есть <code>{url}</code> заполнитель <code>PAGINATION_PATTERNS</code>.</p>
 <p><code>YEAR_ARCHIVE_SAVE_AS = ''</code></p>
-<p>The location to save per-year archives of your posts.</p>
+<p>Место для хранения годовых архивов ваших сообщений.</p>
 <p><code>MONTH_ARCHIVE_URL = ''</code></p>
-<p>The URL to use for per-month archives of your posts. Used only if you have the  <code>{url}</code>  placeholder in  <code>PAGINATION_PATTERNS</code>.</p>
+<p>URL-адрес для ежемесячных архивов ваших сообщений. Используется, только если у вас есть <code>{url}</code> заполнитель <code>PAGINATION_PATTERNS</code>.</p>
 <p><code>MONTH_ARCHIVE_SAVE_AS = ''</code></p>
-<p>The location to save per-month archives of your posts.</p>
+<p>Место для хранения ежемесячных архивов ваших сообщений.</p>
 <p><code>DAY_ARCHIVE_URL = ''</code></p>
-<p>The URL to use for per-day archives of your posts. Used only if you have the  <code>{url}</code>  placeholder in  <code>PAGINATION_PATTERNS</code>.</p>
+<p>URL-адрес для ежедневных архивов ваших сообщений. Используется, только если у вас есть <code>{url}</code> заполнитель <code>PAGINATION_PATTERNS</code>.</p>
 <p><code>DAY_ARCHIVE_SAVE_AS = ''</code></p>
-<p>The location to save per-day archives of your posts.</p>
-<p><code>DIRECT_TEMPLATES</code>  work a bit differently than noted above. Only the  <code>_SAVE_AS</code>  settings are available, but it is available for any direct template.</p>
+<p>Место для сохранения дневных архивов ваших сообщений.</p>
+<p><code>DIRECT_TEMPLATES</code> работают немного иначе, чем указано выше. <code>_SAVE_AS</code> Доступны только настройки, но они доступны для любого прямого шаблона.</p>
 <p><code>ARCHIVES_SAVE_AS = 'archives.html'</code></p>
-<p>The location to save the article archives page.</p>
+<p>Место для сохранения страницы архивов статей.</p>
 <p><code>AUTHORS_SAVE_AS = 'authors.html'</code></p>
-<p>The location to save the author list.</p>
+<p>Место для сохранения списка авторов.</p>
 <p><code>CATEGORIES_SAVE_AS = 'categories.html'</code></p>
-<p>The location to save the category list.</p>
+<p>Место для сохранения списка категорий.</p>
 <p><code>TAGS_SAVE_AS = 'tags.html'</code></p>
-<p>The location to save the tag list.</p>
+<p>Место для сохранения списка тегов.</p>
 <p><code>INDEX_SAVE_AS = 'index.html'</code></p>
-<p>The location to save the list of all articles.</p>
-<p>URLs for direct template pages are theme-dependent. Some themes use corresponding  <code>*_URL</code>  setting as string, while others hard-code them:  <code>'archives.html'</code>,  <code>'authors.html'</code>,  <code>'categories.html'</code>,  <code>'tags.html'</code>.</p>
+<p>Место для сохранения списка всех статей.</p>
+<p>URL-адреса для страниц прямого шаблона зависят от темы. Некоторые темы используют соответствующие <code>*_URL</code> настройки в виде строки, в то время как другие жестко закодировать их: <code>'archives.html'</code>, <code>'authors.html'</code>, <code>'categories.html'</code>, <code>'tags.html'</code>.</p>
 <p><code>SLUG_REGEX_SUBSTITUTIONS = [</code></p>
 <p><code>(r'[^\w\s-]', ''), # remove non-alphabetical/whitespace/'-' chars</code></p>
 <p><code>(r'(?u)\A\s*', ''), # strip leading whitespace</code></p>
 <p><code>(r'(?u)\s*\Z', ''), # strip trailing whitespace</code></p>
-<p><code>(r'[-\s]+', '-'), # reduce multiple whitespace or '-' to single '-'</code></p>
-<p><code>]</code></p>
-<p>Regex substitutions to make when generating slugs of articles and pages. Specified as a list of pairs of  <code>(from,  to)</code>  which are applied in order, ignoring case. The default substitutions have the effect of removing non-alphanumeric characters and converting internal whitespace to dashes. Apart from these substitutions, slugs are always converted to lowercase ascii characters and leading and trailing whitespace is stripped. Useful for backward compatibility with existing URLs.</p>
+<p><code>(r'[-\s]+', '-'), # reduce multiple whitespace or '-' to single '-'``]</code></p>
+<p>Подстановки регулярных выражений, которые нужно сделать при создании заголовков статей и страниц. Задается в виде списка пар, <code>(from, to)</code> которые применяются по порядку, без учета регистра. Замены по умолчанию имеют эффект удаления не буквенно-цифровых символов и преобразования внутренних пробелов в тире. Помимо этих замен, заголовки всегда преобразуются в символы ascii в нижнем регистре, а начальные и конечные пробелы удаляются. Полезно для обратной совместимости с существующими URL-адресами.</p>
 <p><code>AUTHOR_REGEX_SUBSTITUTIONS = SLUG_REGEX_SUBSTITUTIONS</code></p>
-<p>Regex substitutions for author slugs. Defaults to  <code>SLUG_REGEX_SUBSTITUTIONS</code>.</p>
+<p>Подстановки регулярных выражений для ярлыков автора. По умолчанию <code>SLUG_REGEX_SUBSTITUTIONS</code>.</p>
 <p><code>CATEGORY_REGEX_SUBSTITUTIONS = SLUG_REGEX_SUBSTITUTIONS</code></p>
-<p>Regex substitutions for category slugs. Defaults to  <code>SLUG_REGEX_SUBSTITUTIONS</code>.</p>
+<p>Подстановки регулярных выражений для ярлыков категорий. По умолчанию <code>SLUG_REGEX_SUBSTITUTIONS</code>.</p>
 <p><code>TAG_REGEX_SUBSTITUTIONS = SLUG_REGEX_SUBSTITUTIONS</code></p>
-<p>Regex substitutions for tag slugs. Defaults to  <code>SLUG_REGEX_SUBSTITUTIONS</code>.</p>
-<h2>Time and Date<a href="#time-and-date" title="Permalink to this headline">¶</a></h2>
-<p><code>TIMEZONE</code><a href="#TIMEZONE" title="Permalink to this definition">¶</a></p>
-<p>The timezone used in the date information, to generate Atom and RSS feeds.</p>
-<p>If no timezone is defined, UTC is assumed. This means that the generated Atom and RSS feeds will contain incorrect date information if your locale is not UTC.</p>
-<p>Pelican issues a warning in case this setting is not defined, as it was not mandatory in previous versions.</p>
-<p>Have a look at  <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">the wikipedia page</a>  to get a list of valid timezone values.</p>
+<p>Подстановки регулярных выражений для ярлыков тегов. По умолчанию <code>SLUG_REGEX_SUBSTITUTIONS</code>.</p>
+<h2>Время и дата <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#time-and-date" title="Постоянная ссылка на этот заголовок">¶</a></h2>
+<p><code>TIMEZONE</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#TIMEZONE" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Часовой пояс, используемый в информации о дате для создания каналов Atom и RSS.</p>
+<p>Если часовой пояс не определен, предполагается UTC. Это означает, что сгенерированные каналы Atom и RSS будут содержать неверную информацию о дате, если ваш языковой стандарт отличается от UTC.</p>
+<p>Пеликан выдает предупреждение, если этот параметр не определен, поскольку в предыдущих версиях он не был обязательным.</p>
+<p>Взгляните на <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">страницу википедии,</a> чтобы получить список допустимых значений часовых поясов.</p>
 <p><code>DEFAULT_DATE = None</code></p>
-<p>The default date you want to use. If  <code>'fs'</code>, Pelican will use the file system timestamp information (mtime) if it can’t get date information from the metadata. If given any other string, it will be parsed by the same method as article metadata. If set to a tuple object, the default datetime object will instead be generated by passing the tuple to the  <code>datetime.datetime</code>  constructor.</p>
+<p>Дата по умолчанию, которую вы хотите использовать. Если <code>'fs'</code>, Pelican будет использовать информацию о временной метке файловой системы (mtime), если он не может получить информацию о дате из метаданных. Если задана любая другая строка, она будет проанализирована тем же методом, что и метаданные статьи. Если задан объект кортежа, вместо этого объект datetime по умолчанию будет сгенерирован путем передачи кортежа в <code>datetime.datetime</code> конструктор.</p>
 <p><code>DEFAULT_DATE_FORMAT = '%a %d %B %Y'</code></p>
-<p>The default date format you want to use.</p>
+<p>Формат даты по умолчанию, который вы хотите использовать.</p>
 <p><code>DATE_FORMATS = {}</code></p>
-<p>If you manage multiple languages, you can set the date formatting here.</p>
-<p>If no  <code>DATE_FORMATS</code>  are set, Pelican will fall back to  <code>DEFAULT_DATE_FORMAT</code>. If you need to maintain multiple languages with different date formats, you can set the  <code>DATE_FORMATS</code>  dictionary using the language name (<code>lang</code>  metadata in your post content) as the key.</p>
-<p>In addition to the standard C89 strftime format codes that are listed in  <a href="https://docs.python.org/library/datetime.html#strftime-strptime-behavior">Python strftime documentation</a>, you can use the  <code>-</code>  character between  <code>%</code>  and the format character to remove any leading zeros. For example,  <code>%d/%m/%Y</code>  will output  <code>01/01/2014</code>  whereas  <code>%-d/%-m/%Y</code>  will result in  <code>1/1/2014</code>.</p>
+<p>Если вы управляете несколькими языками, вы можете установить форматирование даты здесь.</p>
+<p>Если нет <code>DATE_FORMATS</code> , Пеликан вернется к <code>DEFAULT_DATE_FORMAT</code>. Если вам нужно поддерживать несколько языков с разными форматами даты, вы можете установить <code>DATE_FORMATS</code> словарь, используя имя языка ( <code>lang</code> метаданные в содержимом вашего сообщения) в качестве ключа.</p>
+<p>В дополнение к стандартным кодам формата strftime C89, которые перечислены в <a href="https://docs.python.org/library/datetime.html#strftime-strptime-behavior">документации Python strftime</a> , вы можете использовать <code>-</code> символ между <code>%</code> и символ формата для удаления любых начальных нулей. Например, <code>%d/%m/%Y</code> будет выводиться, <code>01/01/2014</code> тогда как <code>%-d/%-m/%Y</code> результатом будет <code>1/1/2014</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="err">DATE_FORMATS = {</span>
 <span class="err">    &#39;en&#39;: &#39;%a, %d %b %Y&#39;,</span>
 <span class="err">    &#39;jp&#39;: &#39;%Y-%m-%d(%a)&#39;,</span>
@@ -309,67 +343,60 @@ MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'</p>
 </code></pre></div>
 
 
-<p>It is also possible to set different locale settings for each language by using a  <code>(locale,  format)</code>  tuple as a dictionary value which will override the  <code>LOCALE</code>  setting:</p>
-<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="k">On</span> <span class="n">Unix</span><span class="o">/</span><span class="n">Linux</span>
-<span class="n">DATE_FORMATS</span> <span class="o">=</span> <span class="err">{</span>
-    <span class="s1">&#39;en&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;en_US&#39;</span><span class="p">,</span><span class="s1">&#39;%a, %d %b %Y&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;jp&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;ja_JP&#39;</span><span class="p">,</span><span class="s1">&#39;%Y-%m-%d(%a)&#39;</span><span class="p">),</span>
-<span class="err">}</span>
-
-<span class="o">#</span> <span class="k">On</span> <span class="n">Windows</span>  
-<span class="n">DATE_FORMATS</span>  <span class="o">=</span>  <span class="err">{</span>  
-<span class="err">‘</span><span class="n">en</span><span class="err">’</span><span class="p">:</span>  <span class="p">(</span><span class="err">‘</span><span class="n">usa</span><span class="err">’</span><span class="p">,</span><span class="err">’</span><span class="o">%</span><span class="n">a</span><span class="p">,</span> <span class="o">%</span><span class="n">d</span> <span class="o">%</span><span class="n">b</span> <span class="o">%</span><span class="n">Y</span><span class="err">’</span><span class="p">),</span>  
-<span class="err">‘</span><span class="n">jp</span><span class="err">’</span><span class="p">:</span>  <span class="p">(</span><span class="err">‘</span><span class="n">jpn</span><span class="err">’</span><span class="p">,</span><span class="err">’</span><span class="o">%</span><span class="n">Y</span><span class="o">-%</span><span class="n">m</span><span class="o">-%</span><span class="n">d</span><span class="p">(</span><span class="o">%</span><span class="n">a</span><span class="p">)</span><span class="err">’</span><span class="p">),</span>  
+<p>Также можно установить разные настройки локали для каждого языка, используя <code>(locale, format)</code> кортеж в качестве значения словаря, который переопределит <code>LOCALE</code> настройку:</p>
+<div class="highlight"><pre><span></span><code><span class="err">`# On Unix/Linux</span>
+<span class="err">DATE_FORMATS = {</span>
+<span class="err">    &#39;en&#39;: (&#39;en_US&#39;,&#39;%a, %d %b %Y&#39;),</span>
+<span class="err">    &#39;jp&#39;: (&#39;ja_JP&#39;,&#39;%Y-%m-%d(%a)&#39;),</span>
 <span class="err">}</span>
 </code></pre></div>
 
 
-<p><code>LOCALE</code><a href="#LOCALE" title="Permalink to this definition">¶</a></p>
-<p>Change the locale  <a href="#id2">[1]</a>. A list of locales can be provided here or a single string representing one locale. When providing a list, all the locales will be tried until one works.</p>
-<p>You can set locale to further control date format:</p>
-<div class="highlight"><pre><span></span><code><span class="err"> LOCALE = (&#39;usa&#39;, &#39;jpn&#39;,      # On Windows</span>
-<span class="err">           &#39;en_US&#39;, &#39;ja_JP&#39;   # On Unix/Linux</span>
-<span class="err">)</span>
+<h1>On Windows</h1>
+<div class="highlight"><pre><span></span><code><span class="err">DATE_FORMATS  =  {  </span>
+<span class="err">‘en’:  (‘usa’,’%a, %d %b %Y’),  </span>
+<span class="err">‘jp’:  (‘jpn’,’%Y-%m-%d(%a)’),  </span>
+<span class="err">}`</span>
 </code></pre></div>
 
 
-<p>For a list of available locales refer to  <a href="http://msdn.microsoft.com/en-us/library/cdax410z%28VS.71%29.aspx">locales on Windows</a>  or on Unix/Linux, use the  <code>locale  -a</code>  command; see manpage  <a href="https://linux.die.net/man/1/locale">locale(1)</a>  for more information.</p>
-<p><a href="#id1">[1]</a></p>
-<p>Default is the system locale.</p>
-<h2>Template pages<a href="#template-pages" title="Permalink to this headline">¶</a></h2>
+<p><code>LOCALE</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#LOCALE" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Измените локаль <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id2">[1]</a> . Здесь может быть представлен список языковых стандартов или одна строка, представляющая один языковой стандарт. При предоставлении списка будут проверяться все языковые стандарты, пока одна из них не сработает.</p>
+<p>Вы можете установить языковой стандарт для дальнейшего управления форматом даты:</p>
+<p><code>LOCALE = ('usa', 'jpn',      # On Windows
+ 'en_US', 'ja_JP'   # On Unix/Linux
+)</code> </p>
+<p>Для получения списка доступных локалей обратитесь к <a href="http://msdn.microsoft.com/en-us/library/cdax410z%28VS.71%29.aspx">локали в Windows</a> или в Unix / Linux, используйте <code>locale -a</code> команду; см. <a href="https://linux.die.net/man/1/locale">локаль</a> man- <a href="https://linux.die.net/man/1/locale">страницы (1)</a> для получения дополнительной информации.</p>
+<p><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id1">[1]</a></p>
+<p>По умолчанию используется системный языковой стандарт.</p>
+<h2>Страницы шаблонов <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#template-pages" title="Постоянная ссылка на этот заголовок">¶</a></h2>
 <p><code>TEMPLATE_PAGES = None</code></p>
-<p>A mapping containing template pages that will be rendered with the blog entries. See  <a href="#template-pages">Template pages</a>.</p>
-<p>If you want to generate custom pages besides your blog entries, you can point any Jinja2 template file with a path pointing to the file and the destination path for the generated file.</p>
-<p>For instance, if you have a blog with three static pages — a list of books, your resume, and a contact page — you could have:</p>
-<div class="highlight"><pre><span></span><code><span class="err">TEMPLATE_PAGES = {&#39;src/books.html&#39;: &#39;dest/books.html&#39;,</span>
-<span class="err">                  &#39;src/resume.html&#39;: &#39;dest/resume.html&#39;,</span>
-<span class="err">                  &#39;src/contact.html&#39;: &#39;dest/contact.html&#39;}</span>
-</code></pre></div>
-
-
+<p>Сопоставление, содержащее страницы-шаблоны, которые будут отображаться с записями блога. См. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#template-pages">Страницы шаблонов</a> .</p>
+<p>Если вы хотите создавать собственные страницы помимо записей в блоге, вы можете указать в любом файле шаблона Jinja2 путь, указывающий на файл, и путь назначения для созданного файла.</p>
+<p>Например, если у вас есть блог с тремя статическими страницами - списком книг, вашим резюме и страницей контактов - у вас могут быть:</p>
+<p><code>TEMPLATE_PAGES = {'src/books.html': 'dest/books.html',
+ 'src/resume.html': 'dest/resume.html',
+ 'src/contact.html': 'dest/contact.html'}</code> </p>
 <p><code>TEMPLATE_EXTENSIONS = ['.html']</code></p>
-<p>The extensions to use when looking up template files from template names.</p>
+<p>Расширения, используемые при поиске файлов шаблонов по именам шаблонов.</p>
 <p><code>DIRECT_TEMPLATES = ['index', 'authors', 'categories', 'tags', 'archives']</code></p>
-<p>List of templates that are used directly to render content. Typically direct templates are used to generate index pages for collections of content (e.g., category and tag index pages). If the author, category and tag collections are not needed, set  <code>DIRECT_TEMPLATES  =  ['index',  'archives']</code></p>
-<p><code>DIRECT_TEMPLATES</code>  are searched for over paths maintained in  <code>THEME_TEMPLATES_OVERRIDES</code>.</p>
-<h2>Metadata<a href="#metadata" title="Permalink to this headline">¶</a></h2>
-<p><code>AUTHOR</code><a href="#AUTHOR" title="Permalink to this definition">¶</a></p>
-<p>Default author (usually your name).</p>
+<p>Список шаблонов, которые используются непосредственно для рендеринга контента. Обычно прямые шаблоны используются для создания индексных страниц для коллекций контента (например, индексных страниц категорий и тегов). Если автор, категория и коллекции тегов не нужны, установите <code>DIRECT_TEMPLATES = ['index', 'archives']</code></p>
+<p><code>DIRECT_TEMPLATES</code> ищутся по путям, поддерживаемым в <code>THEME_TEMPLATES_OVERRIDES</code>.</p>
+<h2>Метаданные <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#metadata" title="Постоянная ссылка на этот заголовок">¶</a></h2>
+<p><code>AUTHOR</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#AUTHOR" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Автор по умолчанию (обычно ваше имя).</p>
 <p><code>DEFAULT_METADATA = {}</code></p>
-<p>The default metadata you want to use for all articles and pages.</p>
+<p>Метаданные по умолчанию, которые вы хотите использовать для всех статей и страниц.</p>
 <p><code>FILENAME_METADATA = r'(?P&lt;date&gt;d{4}-d{2}-d{2}).*'</code></p>
-<p>The regexp that will be used to extract any metadata from the filename. All named groups that are matched will be set in the metadata object. The default value will only extract the date from the filename.</p>
-<p>For example, to extract both the date and the slug:</p>
-<div class="highlight"><pre><span></span><code><span class="err">FILENAME_METADATA = r&#39;(?P&lt;date&gt;\d{4}-\d{2}-\d{2})_(?P&lt;slug&gt;.*)&#39;</span>
-</code></pre></div>
-
-
-<p>See also  <code>SLUGIFY_SOURCE</code>.</p>
+<p>Регулярное выражение, которое будет использоваться для извлечения любых метаданных из имени файла. Все сопоставленные именованные группы будут установлены в объекте метаданных. Значение по умолчанию будет извлекать только дату из имени файла.</p>
+<p>Например, чтобы извлечь дату и заголовок:</p>
+<p><code>FILENAME_METADATA = r'(?P&lt;date&gt;\d{4}-\d{2}-\d{2})_(?P&lt;slug&gt;.*)'</code> </p>
+<p>См. Также <code>SLUGIFY_SOURCE</code>.</p>
 <p><code>PATH_METADATA = ''</code></p>
-<p>Like  <code>FILENAME_METADATA</code>, but parsed from a page’s full path relative to the content source directory.</p>
+<p>Как <code>FILENAME_METADATA</code>, но анализируется из полного пути к странице относительно каталога источника контента.</p>
 <p><code>EXTRA_PATH_METADATA = {}</code></p>
-<p>Extra metadata dictionaries keyed by relative path. Relative paths require correct OS-specific directory separators (i.e. / in UNIX and \ in Windows) unlike some other Pelican file settings. Paths to a directory apply to all files under it. The most-specific path wins conflicts.</p>
-<p>Not all metadata needs to be  <a href="https://docs.getpelican.com/en/stable/content.html#internal-metadata">embedded in source file itself</a>. For example, blog posts are often named following a  <code>YYYY-MM-DD-SLUG.rst</code>  pattern, or nested into  <code>YYYY/MM/DD-SLUG</code>  directories. To extract metadata from the filename or path, set  <code>FILENAME_METADATA</code>  or  <code>PATH_METADATA</code>  to regular expressions that use Python’s  <a href="https://docs.python.org/3/library/re.html#regular-expression-syntax">group name notation</a>  <code>(?P&lt;name&gt;…)</code>. If you want to attach additional metadata but don’t want to encode it in the path, you can set  <code>EXTRA_PATH_METADATA</code>:</p>
+<p>Дополнительные словари метаданных с вводом по относительному пути. Относительные пути требуют правильных разделителей каталогов для конкретной ОС (например, / в UNIX и \ в Windows), в отличие от некоторых других параметров файлов Pelican. Пути к каталогу применяются ко всем файлам в нем. Наиболее конкретный путь побеждает в конфликтах.</p>
+<p>Не все метаданные нужно <a href="https://docs.getpelican.com/en/stable/content.html#internal-metadata">встраивать в сам исходный файл</a> . Например, сообщения в блогах часто называются по <code>YYYY-MM-DD-SLUG.rst</code> шаблону или вкладываются в <code>YYYY/MM/DD-SLUG</code> каталоги. Чтобы извлечь метаданные из имени файла или пути, задайте <code>FILENAME_METADATA</code> или <code>PATH_METADATA</code> для регулярных выражений, которые используют <a href="https://docs.python.org/3/library/re.html#regular-expression-syntax">нотацию имени группы</a>  Python <code>(?P&lt;name&gt;…)</code>. Если вы хотите прикрепить дополнительные метаданные, но не хотите кодировать их в пути, вы можете установить <code>EXTRA_PATH_METADATA</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="err">EXTRA_PATH_METADATA = {</span>
 <span class="err">    &#39;relative/path/to/file-1&#39;: {</span>
 <span class="err">        &#39;key-1a&#39;: &#39;value-1a&#39;,</span>
@@ -382,7 +409,7 @@ MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'</p>
 </code></pre></div>
 
 
-<p>This can be a convenient way to shift the installed location of a particular file:</p>
+<p>Это может быть удобный способ изменить место установки определенного файла:</p>
 <div class="highlight"><pre><span></span><code><span class="err"># Take advantage of the following defaults</span>
 <span class="err"># STATIC_SAVE_AS = &#39;{path}&#39;</span>
 <span class="err"># STATIC_URL = &#39;{path}&#39;</span>
@@ -395,86 +422,80 @@ MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'</p>
 </code></pre></div>
 
 
-<h2>Feed settings<a href="#feed-settings" title="Permalink to this headline">¶</a></h2>
-<p>By default, Pelican uses Atom feeds. However, it is also possible to use RSS feeds if you prefer.</p>
-<p>Pelican generates category feeds as well as feeds for all your articles. It does not generate feeds for tags by default, but it is possible to do so using the  <code>TAG_FEED_ATOM</code>  and  <code>TAG_FEED_RSS</code>  settings:</p>
+<h2>Настройки подачи <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#feed-settings" title="Постоянная ссылка на этот заголовок">¶</a></h2>
+<p>По умолчанию Pelican использует каналы Atom. Однако при желании можно также использовать RSS-каналы.</p>
+<p>Пеликан создает каналы категорий, а также каналы для всех ваших статей. Он не создает каналы для тегов по умолчанию, но можно сделать так , используя <code>TAG_FEED_ATOM</code> и <code>TAG_FEED_RSS</code> настройки:</p>
 <p><code>FEED_DOMAIN = None, i.e. base URL is "/"</code></p>
-<p>The domain prepended to feed URLs. Since feed URLs should always be absolute, it is highly recommended to define this (e.g., “<a href="https://feeds.example.com/">https://feeds.example.com</a>”). If you have already explicitly defined SITEURL (see above) and want to use the same domain for your feeds, you can just set:  <code>FEED_DOMAIN  =  SITEURL</code>.</p>
+<p>Домен добавлен к URL-адресам каналов. Поскольку URL-адреса каналов всегда должны быть абсолютными, настоятельно рекомендуется определить это (например, « <a href="https://feeds.example.com/">https://feeds.example.com</a> »). Если вы уже четко определены SITEURL (смотри выше) и хотите использовать один и тот же домен для ваших каналов, вы можете просто установить: <code>FEED_DOMAIN = SITEURL</code>.</p>
 <p><code>FEED_ATOM = None, i.e. no Atom feed</code></p>
-<p>The location to save the Atom feed.</p>
+<p>Место для сохранения ленты Atom.</p>
 <p><code>FEED_ATOM_URL = None</code></p>
-<p>Relative URL of the Atom feed. If not set,  <code>FEED_ATOM</code>  is used both for save location and URL.</p>
+<p>Относительный URL-адрес канала Atom. Если не установлен, <code>FEED_ATOM</code> используется как для места сохранения, так и для URL.</p>
 <p><code>FEED_RSS = None, i.e. no RSS</code></p>
-<p>The location to save the RSS feed.</p>
+<p>Место для сохранения RSS-канала.</p>
 <p><code>FEED_RSS_URL = None</code></p>
-<p>Relative URL of the RSS feed. If not set,  <code>FEED_RSS</code>  is used both for save location and URL.</p>
+<p>Относительный URL-адрес RSS-канала. Если не установлен, <code>FEED_RSS</code> используется как для места сохранения, так и для URL.</p>
 <p><code>FEED_ALL_ATOM = 'feeds/all.atom.xml'</code></p>
-<p>The location to save the all-posts Atom feed: this feed will contain all posts regardless of their language.</p>
+<p>Место для сохранения ленты Atom со всеми сообщениями: эта лента будет содержать все сообщения независимо от их языка.</p>
 <p><code>FEED_ALL_ATOM_URL = None</code></p>
-<p>Relative URL of the all-posts Atom feed. If not set,  <code>FEED_ALL_ATOM</code>  is used both for save location and URL.</p>
+<p>Относительный URL-адрес ленты Atom со всеми сообщениями. Если не установлен, <code>FEED_ALL_ATOM</code> используется как для места сохранения, так и для URL.</p>
 <p><code>FEED_ALL_RSS = None, i.e. no all-posts RSS</code></p>
-<p>The location to save the the all-posts RSS feed: this feed will contain all posts regardless of their language.</p>
+<p>Место для сохранения RSS-канала всех сообщений: этот канал будет содержать все сообщения независимо от их языка.</p>
 <p><code>FEED_ALL_RSS_URL = None</code></p>
-<p>Relative URL of the all-posts RSS feed. If not set,  <code>FEED_ALL_RSS</code>  is used both for save location and URL.</p>
+<p>Относительный URL-адрес RSS-канала всех сообщений. Если не установлен, <code>FEED_ALL_RSS</code> используется как для места сохранения, так и для URL.</p>
 <p><code>CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'</code></p>
-<p>The location to save the category Atom feeds.  <a href="#id14">[2]</a></p>
+<p>Место для сохранения каналов категории Atom. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id14">[2]</a></p>
 <p><code>CATEGORY_FEED_ATOM_URL = None</code></p>
-<p>Relative URL of the category Atom feeds, including the  <code>{slug}</code>  placeholder.  <a href="#id14">[2]</a>  If not set,  <code>CATEGORY_FEED_ATOM</code>  is used both for save location and URL.</p>
+<p>Относительный URL-адрес каналов категории Atom, включая <code>{slug}</code> заполнитель. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id14">[2]</a> Если не установлен, <code>CATEGORY_FEED_ATOM</code> используется как для места сохранения, так и для URL.</p>
 <p><code>CATEGORY_FEED_RSS = None, i.e. no RSS</code></p>
-<p>The location to save the category RSS feeds, including the  <code>{slug}</code>  placeholder.  <a href="#id14">[2]</a></p>
+<p>Место для сохранения RSS-каналов категории, включая <code>{slug}</code> заполнитель. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id14">[2]</a></p>
 <p><code>CATEGORY_FEED_RSS_URL = None</code></p>
-<p>Relative URL of the category RSS feeds, including the  <code>{slug}</code>  placeholder.  <a href="#id14">[2]</a>  If not set,  <code>CATEGORY_FEED_RSS</code>  is used both for save location and URL.</p>
+<p>Относительный URL-адрес RSS-каналов категории, включая <code>{slug}</code> заполнитель. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id14">[2]</a> Если не установлен, <code>CATEGORY_FEED_RSS</code> используется как для места сохранения, так и для URL.</p>
 <p><code>AUTHOR_FEED_ATOM = 'feeds/{slug}.atom.xml'</code></p>
-<p>The location to save the author Atom feeds.  <a href="#id14">[2]</a></p>
+<p>Место для сохранения авторских лент Atom. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id14">[2]</a></p>
 <p><code>AUTHOR_FEED_ATOM_URL = None</code></p>
-<p>Relative URL of the author Atom feeds, including the  <code>{slug}</code>  placeholder.  <a href="#id14">[2]</a>  If not set,  <code>AUTHOR_FEED_ATOM</code>  is used both for save location and URL.</p>
+<p>Относительный URL-адрес авторских каналов Atom, включая <code>{slug}</code> заполнитель. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id14">[2]</a> Если не установлен, <code>AUTHOR_FEED_ATOM</code> используется как для места сохранения, так и для URL.</p>
 <p><code>AUTHOR_FEED_RSS = 'feeds/{slug}.rss.xml'</code></p>
-<p>The location to save the author RSS feeds.  <a href="#id14">[2]</a></p>
+<p>Место для сохранения RSS-каналов автора. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id14">[2]</a></p>
 <p><code>AUTHOR_FEED_RSS_URL = None</code></p>
-<p>Relative URL of the author RSS feeds, including the  <code>{slug}</code>  placeholder.  <a href="#id14">[2]</a>  If not set,  <code>AUTHOR_FEED_RSS</code>  is used both for save location and URL.</p>
+<p>Относительный URL-адрес RSS-каналов автора, включая <code>{slug}</code> заполнитель. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id14">[2]</a> Если не установлен, <code>AUTHOR_FEED_RSS</code> используется как для места сохранения, так и для URL.</p>
 <p><code>TAG_FEED_ATOM = None, i.e. no tag feed</code></p>
-<p>The location to save the tag Atom feed, including the  <code>{slug}</code>  placeholder.  <a href="#id14">[2]</a></p>
+<p>Место для сохранения фида Atom тега, включая <code>{slug}</code> заполнитель. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id14">[2]</a></p>
 <p><code>TAG_FEED_ATOM_URL = None</code></p>
-<p>Relative URL of the tag Atom feed, including the  <code>{slug}</code>  placeholder.  <a href="#id14">[2]</a></p>
+<p>Относительный URL-адрес фида Atom тега, включая <code>{slug}</code> заполнитель. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id14">[2]</a></p>
 <p><code>TAG_FEED_RSS = None, i.e. no RSS tag feed</code></p>
-<p>Relative URL to output the tag RSS feed, including the  <code>{slug}</code>  placeholder. If not set,  <code>TAG_FEED_RSS</code>  is used both for save location and URL.</p>
-<p><code>FEED_MAX_ITEMS</code><a href="#FEED_MAX_ITEMS" title="Permalink to this definition">¶</a></p>
-<p>Maximum number of items allowed in a feed. Feed item quantity is unrestricted by default.</p>
+<p>Относительный URL для вывода RSS-канала тега, включая <code>{slug}</code> заполнитель. Если не установлен, <code>TAG_FEED_RSS</code> используется как для места сохранения, так и для URL.</p>
+<p><code>FEED_MAX_ITEMS</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#FEED_MAX_ITEMS" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Максимальное количество элементов, разрешенных в фиде. Количество элементов фида по умолчанию не ограничено.</p>
 <p><code>RSS_FEED_SUMMARY_ONLY = True</code></p>
-<p>Only include item summaries in the  <code>description</code>  tag of RSS feeds. If set to  <code>False</code>, the full content will be included instead. This setting doesn’t affect Atom feeds, only RSS ones.</p>
-<p>If you don’t want to generate some or any of these feeds, set the above variables to  <code>None</code>.</p>
+<p>Включайте в <code>description</code> тег RSS-каналов только сводки по элементам. Если установлено <code>False</code>, вместо этого будет включено все содержимое. Этот параметр не влияет на каналы Atom, только на RSS.</p>
+<p>Если вы не хотите создавать некоторые или какие-либо из этих каналов, установите для указанных выше переменных значение <code>None</code>.</p>
 <p>[2]</p>
-<p><em>(<a href="#id4">1</a>,  <a href="#id5">2</a>,  <a href="#id6">3</a>,  <a href="#id7">4</a>,  <a href="#id8">5</a>,  <a href="#id9">6</a>,  <a href="#id10">7</a>,  <a href="#id11">8</a>,  <a href="#id12">9</a>,  <a href="#id13">10</a>)</em>  <code>{slug}</code>  is replaced by name of the category / author / tag.</p>
-<h2>Pagination<a href="#pagination" title="Permalink to this headline">¶</a></h2>
-<p>The default behaviour of Pelican is to list all the article titles along with a short description on the index page. While this works well for small-to-medium sites, sites with a large quantity of articles will probably benefit from paginating this list.</p>
-<p>You can use the following settings to configure the pagination.</p>
+<p><em>( <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id4">1</a> , <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id5">2</a> , <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id6">3</a> , <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id7">4</a> , <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id8">5</a> , <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id9">6</a> , <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id10">7</a> , <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id11">8</a> , <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id12">9</a> , <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id13">10</a> )</em>  <code>{slug}</code> заменяется названием категории / автора / тега.</p>
+<h2>Пагинация <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#pagination" title="Постоянная ссылка на этот заголовок">¶</a></h2>
+<p>По умолчанию Pelican отображает все заголовки статей вместе с кратким описанием на странице индекса. Хотя это хорошо работает для сайтов малого и среднего размера, сайты с большим количеством статей, вероятно, выиграют от разбивки этого списка на страницы.</p>
+<p>Вы можете использовать следующие параметры для настройки нумерации страниц.</p>
 <p><code>DEFAULT_ORPHANS = 0</code></p>
-<p>The minimum number of articles allowed on the last page. Use this when you don’t want the last page to only contain a handful of articles.</p>
+<p>Минимальное количество статей, разрешенных на последней странице. Используйте это, если вы не хотите, чтобы последняя страница содержала только несколько статей.</p>
 <p><code>DEFAULT_PAGINATION = False</code></p>
-<p>The maximum number of articles to include on a page, not including orphans. False to disable pagination.</p>
+<p>Максимальное количество статей для включения на страницу, не считая сирот. False, чтобы отключить разбиение на страницы.</p>
 <p><code>PAGINATED_TEMPLATES = {'index': None, 'tag': None, 'category': None, 'author': None}</code></p>
-<p>The templates to use pagination with, and the number of articles to include on a page. If this value is  <code>None</code>, it defaults to  <code>DEFAULT_PAGINATION</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="o">`</span><span class="n">PAGINATION_PATTERNS</span> <span class="o">=</span> <span class="p">(</span><span class="o">`</span>
-
-<span class="o">`</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;{name}{extension}&#39;</span><span class="p">,</span> <span class="s1">&#39;{name}{extension}&#39;</span><span class="p">),</span><span class="o">`</span>
-
-<span class="o">`</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;{name}{number}{extension}&#39;</span><span class="p">,</span> <span class="s1">&#39;{name}{number}{extension}&#39;</span><span class="p">),</span><span class="o">`</span>
-
-<span class="o">`</span><span class="p">)</span><span class="o">`</span>
-</code></pre></div>
-
-
+<p>Шаблоны для использования разбивки на страницы и количество статей для включения на страницу. Если это значение <code>None</code>, по умолчанию используется <code>DEFAULT_PAGINATION</code>.</p>
+<p><code>`PAGINATION_PATTERNS = (`
+`(1, '{name}{extension}', '{name}{extension}'),`
+`(2, '{name}{number}{extension}', '{name}{number}{extension}'),`
+`)`</code> </p>
 <blockquote>
-<p>A set of patterns that are used to determine advanced pagination output.</p>
+<p>Набор шаблонов, которые используются для определения вывода расширенной разбивки на страницы.</p>
 </blockquote>
-<h3>Using Pagination Patterns<a href="#using-pagination-patterns" title="Permalink to this headline">¶</a></h3>
-<p>By default, pages subsequent to  <code>.../foo.html</code>  are created as  <code>.../foo2.html</code>, etc. The  <code>PAGINATION_PATTERNS</code>  setting can be used to change this. It takes a sequence of triples, where each triple consists of:</p>
+<h3>Использование шаблонов <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#using-pagination-patterns" title="Постоянная ссылка на этот заголовок">разбивки на</a> страницы <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#using-pagination-patterns" title="Постоянная ссылка на этот заголовок">¶</a></h3>
+<p>По умолчанию страницы, следующие за <code>.../foo.html</code> , создаются как <code>.../foo2.html</code>и т. Д. Этот <code>PAGINATION_PATTERNS</code> параметр можно использовать, чтобы изменить это. Требуется последовательность троек, каждая из которых состоит из:</p>
 <div class="highlight"><pre><span></span><code><span class="err">(minimum_page, page_url, page_save_as,)</span>
 </code></pre></div>
 
 
-<p>For  <code>page_url</code>  and  <code>page_save_as</code>, you may use a number of variables.  <code>{url}</code>  and  <code>{save_as}</code>  correspond respectively to the  <code>*_URL</code>  and  <code>*_SAVE_AS</code>  values of the corresponding page type (e.g.  <code>ARTICLE_SAVE_AS</code>). If  <code>{save_as}  ==  foo/bar.html</code>, then  <code>{name}  ==  foo/bar</code>  and  <code>{extension}  ==  .html</code>.  <code>{base_name}</code>  equals  <code>{name}</code>  except that it strips trailing  <code>/index</code>  if present.  <code>{number}</code>  equals the page number.</p>
-<p>For example, if you want to leave the first page unchanged, but place subsequent pages at  <code>.../page/2/</code>  etc, you could set  <code>PAGINATION_PATTERNS</code>  as follows:</p>
+<p>Для <code>page_url</code> и <code>page_save_as</code>вы можете использовать ряд переменных. <code>{url}</code> и <code>{save_as}</code> соответствуют соответственно <code>*_URL</code> и <code>*_SAVE_AS</code> значению соответствующего типа страницы (например <code>ARTICLE_SAVE_AS</code>). Если <code>{save_as} == foo/bar.html</code>, то <code>{name} == foo/bar</code> и <code>{extension} == .html</code>. <code>{base_name}</code> равно, <code>{name}</code> за исключением того, что он удаляет завершающие символы, <code>/index</code> если они есть. <code>{number}</code> равно номеру страницы.</p>
+<p>Например, если вы хотите оставить первую страницу без изменений, но разместить последующие страницы и <code>.../page/2/</code> т. Д., Вы можете установить <code>PAGINATION_PATTERNS</code> следующее:</p>
 <div class="highlight"><pre><span></span><code><span class="err">PAGINATION_PATTERNS = (</span>
 <span class="err">    (1, &#39;{url}&#39;, &#39;{save_as}&#39;,</span>
 <span class="err">    (2, &#39;{base_name}/page/{number}/&#39;, &#39;{base_name}/page/{number}/index.html&#39;),</span>
@@ -482,55 +503,55 @@ MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'</p>
 </code></pre></div>
 
 
-<h2>Translations<a href="#translations" title="Permalink to this headline">¶</a></h2>
-<p>Pelican offers a way to translate articles. See the  <a href="https://docs.getpelican.com/en/stable/content.html">Content</a>  section for more information.</p>
+<h2>Переводы <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#translations" title="Постоянная ссылка на этот заголовок">¶</a></h2>
+<p>Пеликан предлагает способ перевода статей. См. Раздел « <a href="https://docs.getpelican.com/en/stable/content.html">Содержание</a> » для получения дополнительной информации.</p>
 <p><code>DEFAULT_LANG = 'en'</code></p>
-<p>The default language to use.</p>
+<p>Используемый по умолчанию язык.</p>
 <p><code>ARTICLE_TRANSLATION_ID = 'slug'</code></p>
-<p>The metadata attribute(s) used to identify which articles are translations of one another. May be a string or a collection of strings. Set to  <code>None</code>  or  <code>False</code>  to disable the identification of translations.</p>
+<p>Атрибут (ы) метаданных, используемый для определения того, какие статьи являются переводами друг друга. Может быть строкой или набором строк. Установите <code>None</code> или <code>False</code> отключите идентификацию переводов.</p>
 <p><code>PAGE_TRANSLATION_ID = 'slug'</code></p>
-<p>The metadata attribute(s) used to identify which pages are translations of one another. May be a string or a collection of strings. Set to  <code>None</code>  or  <code>False</code>  to disable the identification of translations.</p>
+<p>Атрибут (ы) метаданных, используемый для определения того, какие страницы являются переводами друг друга. Может быть строкой или набором строк. Установите <code>None</code> или <code>False</code> отключите идентификацию переводов.</p>
 <p><code>TRANSLATION_FEED_ATOM = 'feeds/all-{lang}.atom.xml'</code></p>
-<p>The location to save the Atom feed for translations.  <a href="#id18">[3]</a></p>
+<p>Место для сохранения ленты Atom для переводов. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id18">[3]</a></p>
 <p><code>TRANSLATION_FEED_ATOM_URL = None</code></p>
-<p>Relative URL of the Atom feed for translations, including the  <code>{lang}</code>  placeholder.  <a href="#id18">[3]</a>  If not set,  <code>TRANSLATION_FEED_ATOM</code>  is used both for save location and URL.</p>
+<p>Относительный URL-адрес канала Atom для переводов, включая <code>{lang}</code> заполнитель. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id18">[3]</a> Если не установлен, <code>TRANSLATION_FEED_ATOM</code> используется как для места сохранения, так и для URL.</p>
 <p><code>TRANSLATION_FEED_RSS = None, i.e. no RSS</code></p>
-<p>Where to put the RSS feed for translations.</p>
+<p>Куда поставить RSS-ленту для переводов.</p>
 <p><code>TRANSLATION_FEED_RSS_URL = None</code></p>
-<p>Relative URL of the RSS feed for translations, including the  <code>{lang}</code>  placeholder.  <a href="#id18">[3]</a>  If not set,  <code>TRANSLATION_FEED_RSS</code>  is used both for save location and URL.</p>
+<p>Относительный URL-адрес RSS-канала для переводов, включая <code>{lang}</code> заполнитель. <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id18">[3]</a> Если не установлен, <code>TRANSLATION_FEED_RSS</code> используется как для места сохранения, так и для URL.</p>
 <p>[3]</p>
-<p><em>(<a href="#id15">1</a>,  <a href="#id16">2</a>,  <a href="#id17">3</a>)</em>  {lang} is the language code</p>
-<h2>Ordering content<a href="#ordering-content" title="Permalink to this headline">¶</a></h2>
+<p><em>( <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id15">1</a> , <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id16">2</a> , <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#id17">3</a> )</em> {lang} - код языка</p>
+<h2>Заказ содержимого <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#ordering-content" title="Постоянная ссылка на этот заголовок">¶</a></h2>
 <p><code>NEWEST_FIRST_ARCHIVES = True</code></p>
-<p>Order archives by newest first by date. (False: orders by date with older articles first.)</p>
+<p>Упорядочивайте архивы по самым новым, сначала по дате. (Неверно: заказы по дате с более ранними статьями.)</p>
 <p><code>REVERSE_CATEGORY_ORDER = False</code></p>
-<p>Reverse the category order. (True: lists by reverse alphabetical order; default lists alphabetically.)</p>
+<p>Измените порядок категорий. (Верно: списки в обратном алфавитном порядке; по умолчанию списки в алфавитном порядке.)</p>
 <p><code>ARTICLE_ORDER_BY = 'reversed-date'</code></p>
-<p>Defines how the articles (<code>articles_page.object_list</code>  in the template) are sorted. Valid options are: metadata as a string (use  <code>reversed-</code>  prefix the reverse the sort order), special option  <code>'basename'</code>  which will use the basename of the file (without path) or a custom function to extract the sorting key from articles. The default value,  <code>'reversed-date'</code>, will sort articles by date in reverse order (i.e. newest article comes first).</p>
+<p>Определяет способ <code>articles_page.object_list</code> сортировки статей ( в шаблоне). Допустимые параметры: метаданные в виде строки (используйте <code>reversed-</code> префикс в обратном порядке сортировки), специальный параметр, <code>'basename'</code> который будет использовать базовое имя файла (без пути) или пользовательскую функцию для извлечения ключа сортировки из статей. Значение по умолчанию <code>'reversed-date'</code>сортирует статьи по дате в обратном порядке (т. Е. Самая новая статья идет первой).</p>
 <p><code>PAGE_ORDER_BY = 'basename'</code></p>
-<p>Defines how the pages (<code>pages</code>  variable in the template) are sorted. Options are same as  <code>ARTICLE_ORDER_BY</code>. The default value,  <code>'basename'</code>  will sort pages by their basename.</p>
-<h2>Themes<a href="#themes" title="Permalink to this headline">¶</a></h2>
-<p>Creating Pelican themes is addressed in a dedicated section (see  <a href="https://docs.getpelican.com/en/stable/themes.html#theming-pelican">Creating themes</a>). However, here are the settings that are related to themes.</p>
-<p><code>THEME</code><a href="#THEME" title="Permalink to this definition">¶</a></p>
-<p>Theme to use to produce the output. Can be a relative or absolute path to a theme folder, or the name of a default theme or a theme installed via  <code>pelican-themes</code>  (see below).</p>
+<p>Определяет способ <code>pages</code> сортировки страниц ( переменная в шаблоне). Параметры такие же, как <code>ARTICLE_ORDER_BY</code>. Значение по умолчанию <code>'basename'</code> сортирует страницы по их базовому имени.</p>
+<h2>Темы <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#themes" title="Постоянная ссылка на этот заголовок">¶</a></h2>
+<p>Создание тем Пеликана рассматривается в специальном разделе (см. <a href="https://docs.getpelican.com/en/stable/themes.html#theming-pelican">Создание тем</a> ). Однако вот настройки, относящиеся к темам.</p>
+<p><code>THEME</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#THEME" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Тема для вывода. Может быть относительным или абсолютным путем к папке с темой, или именем темы по умолчанию, или темы, установленной через <code>pelican-themes</code> (см. Ниже).</p>
 <p><code>THEME_STATIC_DIR = 'theme'</code></p>
-<p>Destination directory in the output path where Pelican will place the files collected from  THEME_STATIC_PATHS. Default is  theme.</p>
+<p>Целевой каталог в пути вывода, куда Пеликан поместит файлы, собранные из THEME_STATIC_PATHS. По умолчанию это тема.</p>
 <p><code>THEME_STATIC_PATHS = ['static']</code></p>
-<p>Static theme paths you want to copy. Default value is  static, but if your theme has other static paths, you can put them here. If files or directories with the same names are included in the paths defined in this settings, they will be progressively overwritten.</p>
+<p>Пути статических тем, которые вы хотите скопировать. Значение по умолчанию - static, но если у вашей темы есть другие статические пути, вы можете разместить их здесь. Если файлы или каталоги с одинаковыми именами включены в пути, определенные в этих настройках, они будут постепенно перезаписываться.</p>
 <p><code>THEME_TEMPLATES_OVERRIDES = []</code></p>
-<p>A list of paths you want Jinja2 to search for templates before searching the theme’s  <code>templates/</code>  directory. Allows for overriding individual theme template files without having to fork an existing theme. Jinja2 searches in the following order: files in  <code>THEME_TEMPLATES_OVERRIDES</code>  first, then the theme’s  <code>templates/</code>.</p>
-<p>You can also extend templates from the theme using the  <code>{%  extends  %}</code>  directive utilizing the  <code>!theme</code>  prefix as shown in the following example:</p>
-<p>{% extends '!theme/article.html' %}</p>
+<p>Список путей, по которым Jinja2 будет искать шаблоны перед поиском в <code>templates/</code> каталоге темы . Позволяет переопределять отдельные файлы шаблона темы без необходимости разветвлять существующую тему. Jinja2 выполняет поиск в следующем порядке: <code>THEME_TEMPLATES_OVERRIDES</code> сначала файлы , затем темы <code>templates/</code>.</p>
+<p>Вы также можете расширить шаблоны из темы с помощью <code>{% extends %}</code> директивы, использующей <code>!theme</code> префикс, как показано в следующем примере:</p>
+<p>{% extends '! theme / article.html'%}</p>
 <p><code>CSS_FILE = 'main.css'</code></p>
-<p>Specify the CSS file you want to load.</p>
-<p>By default, two themes are available. You can specify them using the  <code>THEME</code>  setting or by passing the  <code>-t</code>  option to the  <code>pelican</code>  command:</p>
+<p>Укажите файл CSS, который хотите загрузить.</p>
+<p>По умолчанию доступны две темы. Вы можете указать их с помощью <code>THEME</code> параметра или передав <code>-t</code> параметр <code>pelican</code> команде:</p>
 <ul>
 <li>notmyidea</li>
-<li>simple (a synonym for “plain text” :)</li>
+<li>простой (синоним «обычный текст» :)</li>
 </ul>
-<p>There are a number of other themes available at  <a href="https://github.com/getpelican/pelican-themes">https://github.com/getpelican/pelican-themes</a>. Pelican comes with  <a href="https://docs.getpelican.com/en/stable/pelican-themes.html">pelican-themes</a>, a small script for managing themes.</p>
-<p>You can define your own theme, either by starting from scratch or by duplicating and modifying a pre-existing theme. Here is  <a href="https://docs.getpelican.com/en/stable/themes.html">a guide on how to create your theme</a>.</p>
-<p>Following are example ways to specify your preferred theme:</p>
+<p>На <a href="https://github.com/getpelican/pelican-themes">https://github.com/getpelican/pelican-themes</a> доступен ряд других тем . Pelican поставляется с <a href="https://docs.getpelican.com/en/stable/pelican-themes.html">pelican-themes</a> , небольшим скриптом для управления темами.</p>
+<p>Вы можете определить свою собственную тему, начав с нуля или скопировав и изменив уже существующую тему. Вот <a href="https://docs.getpelican.com/en/stable/themes.html">руководство по созданию вашей темы</a> .</p>
+<p>Ниже приведены примеры способов указать предпочитаемую тему:</p>
 <div class="highlight"><pre><span></span><code><span class="err"># Specify name of a built-in theme</span>
 <span class="err">THEME = &quot;notmyidea&quot;</span>
 <span class="err"># Specify name of a theme installed via the pelican-themes tool</span>
@@ -542,150 +563,152 @@ MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'</p>
 </code></pre></div>
 
 
-<p>The built-in  <code>notmyidea</code>  theme can make good use of the following settings. Feel free to use them in your themes as well.</p>
-<p><code>SITESUBTITLE</code><a href="#SITESUBTITLE" title="Permalink to this definition">¶</a></p>
-<p>A subtitle to appear in the header.</p>
-<p><code>DISQUS_SITENAME</code><a href="#DISQUS_SITENAME" title="Permalink to this definition">¶</a></p>
-<p>Pelican can handle Disqus comments. Specify the Disqus sitename identifier here.</p>
-<p><code>GITHUB_URL</code><a href="#GITHUB_URL" title="Permalink to this definition">¶</a></p>
-<p>Your GitHub URL (if you have one). It will then use this information to create a GitHub ribbon.</p>
-<p><code>GOOGLE_ANALYTICS</code><a href="#GOOGLE_ANALYTICS" title="Permalink to this definition">¶</a></p>
-<p>Set to  <code>UA-XXXXX-Y</code>  Property’s tracking ID to activate Google Analytics.</p>
-<p><code>GA_COOKIE_DOMAIN</code><a href="#GA_COOKIE_DOMAIN" title="Permalink to this definition">¶</a></p>
-<p>Set cookie domain field of Google Analytics tracking code. Defaults to  <code>auto</code>.</p>
-<p><code>GOSQUARED_SITENAME</code><a href="#GOSQUARED_SITENAME" title="Permalink to this definition">¶</a></p>
-<p>Set to ‘XXX-YYYYYY-X’ to activate GoSquared.</p>
-<p><code>MENUITEMS</code><a href="#MENUITEMS" title="Permalink to this definition">¶</a></p>
-<p>A list of tuples (Title, URL) for additional menu items to appear at the beginning of the main menu.</p>
-<p><code>PIWIK_URL</code><a href="#PIWIK_URL" title="Permalink to this definition">¶</a></p>
-<p>URL to your Piwik server - without ‘<a href="http:">http://</a>‘ at the beginning.</p>
-<p><code>PIWIK_SSL_URL</code><a href="#PIWIK_SSL_URL" title="Permalink to this definition">¶</a></p>
-<p>If the SSL-URL differs from the normal Piwik-URL you have to include this setting too. (optional)</p>
-<p><code>PIWIK_SITE_ID</code><a href="#PIWIK_SITE_ID" title="Permalink to this definition">¶</a></p>
-<p>ID for the monitored website. You can find the ID in the Piwik admin interface &gt; Settings &gt; Websites.</p>
-<p><code>LINKS</code><a href="#LINKS" title="Permalink to this definition">¶</a></p>
-<p>A list of tuples (Title, URL) for links to appear on the header.</p>
-<p><code>SOCIAL</code><a href="#SOCIAL" title="Permalink to this definition">¶</a></p>
-<p>A list of tuples (Title, URL) to appear in the “social” section.</p>
-<p><code>TWITTER_USERNAME</code><a href="#TWITTER_USERNAME" title="Permalink to this definition">¶</a></p>
-<p>Allows for adding a button to articles to encourage others to tweet about them. Add your Twitter username if you want this button to appear.</p>
-<p><code>LINKS_WIDGET_NAME</code><a href="#LINKS_WIDGET_NAME" title="Permalink to this definition">¶</a></p>
-<p>Allows override of the name of the links widget. If not specified, defaults to “links”.</p>
-<p><code>SOCIAL_WIDGET_NAME</code><a href="#SOCIAL_WIDGET_NAME" title="Permalink to this definition">¶</a></p>
-<p>Allows override of the name of the “social” widget. If not specified, defaults to “social”.</p>
-<p>In addition, you can use the “wide” version of the  <code>notmyidea</code>  theme by adding the following to your configuration:</p>
-<div class="highlight"><pre><span></span><code><span class="err">CSS_FILE = &quot;wide.css&quot;</span>
-</code></pre></div>
-
-
-<h2>Logging<a href="#logging" title="Permalink to this headline">¶</a></h2>
-<p>Sometimes, a long list of warnings may appear during site generation. Finding the  <strong>meaningful</strong>  error message in the middle of tons of annoying log output can be quite tricky. In order to filter out redundant log messages, Pelican comes with the  <code>LOG_FILTER</code>  setting.</p>
-<p><code>LOG_FILTER</code>  should be a list of tuples  <code>(level,  msg)</code>, each of them being composed of the logging level (up to  <code>warning</code>) and the message to be ignored. Simply populate the list with the log messages you want to hide, and they will be filtered out.</p>
-<p>For example:</p>
+<p>Встроенная <code>notmyidea</code> тема может эффективно использовать следующие настройки. Не стесняйтесь использовать их и в своих темах.</p>
+<p><code>SITESUBTITLE</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#SITESUBTITLE" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Подзаголовок, отображаемый в заголовке.</p>
+<p><code>DISQUS_SITENAME</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#DISQUS_SITENAME" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Pelican может обрабатывать комментарии Disqus. Укажите здесь идентификатор Disqus sitename.</p>
+<p><code>GITHUB_URL</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#GITHUB_URL" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Ваш URL-адрес GitHub (если он у вас есть). Затем он будет использовать эту информацию для создания ленты GitHub.</p>
+<p><code>GOOGLE_ANALYTICS</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#GOOGLE_ANALYTICS" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Установите <code>UA-XXXXX-Y</code> идентификатор отслеживания ресурса, чтобы активировать Google Analytics.</p>
+<p><code>GA_COOKIE_DOMAIN</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#GA_COOKIE_DOMAIN" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Поле «Установить домен cookie» кода отслеживания Google Analytics. По умолчанию <code>auto</code>.</p>
+<p><code>GOSQUARED_SITENAME</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#GOSQUARED_SITENAME" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Установите значение «XXX-YYYYYY-X», чтобы активировать GoSquared.</p>
+<p><code>MENUITEMS</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#MENUITEMS" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Список кортежей (заголовок, URL-адрес) для дополнительных пунктов меню, отображаемых в начале главного меню.</p>
+<p><code>PIWIK_URL</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#PIWIK_URL" title="Постоянная ссылка на это определение">¶</a></p>
+<p>URL-адрес вашего сервера Piwik - без <a href="http:">http: //</a> в начале.</p>
+<p><code>PIWIK_SSL_URL</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#PIWIK_SSL_URL" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Если URL-адрес SSL отличается от обычного URL-адреса Piwik, вы также должны включить этот параметр. (по желанию)</p>
+<p><code>PIWIK_SITE_ID</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#PIWIK_SITE_ID" title="Постоянная ссылка на это определение">¶</a></p>
+<p>ID отслеживаемого сайта. Вы можете найти идентификатор в интерфейсе администратора Piwik&gt; Настройки&gt; Сайты.</p>
+<p><code>LINKS</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#LINKS" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Список кортежей (заголовок, URL-адрес) для ссылок, отображаемых в заголовке.</p>
+<p><code>SOCIAL</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#SOCIAL" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Список кортежей (заголовок, URL-адрес) для отображения в разделе «социальные сети».</p>
+<p><code>TWITTER_USERNAME</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#TWITTER_USERNAME" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Позволяет добавить к статьям кнопку, чтобы побудить других писать о них в Твиттере. Добавьте свое имя пользователя Twitter, если хотите, чтобы эта кнопка появилась.</p>
+<p><code>LINKS_WIDGET_NAME</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#LINKS_WIDGET_NAME" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Позволяет переопределить имя виджета ссылок. Если не указано, по умолчанию используются «ссылки».</p>
+<p><code>SOCIAL_WIDGET_NAME</code><a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#SOCIAL_WIDGET_NAME" title="Постоянная ссылка на это определение">¶</a></p>
+<p>Позволяет переопределить имя «социального» виджета. Если не указано, по умолчанию используется «социальный».</p>
+<p>Кроме того, вы можете использовать «широкую» версию <code>notmyidea</code> темы, добавив в свою конфигурацию следующее:</p>
+<p><code>CSS_FILE = "wide.css"</code> </p>
+<h2>Ведение журнала <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#logging" title="Постоянная ссылка на этот заголовок">¶</a></h2>
+<p>Иногда при создании сайта может появиться длинный список предупреждений. Найти <strong>значимое</strong> сообщение об ошибке среди множества надоедливых выводов журнала может быть довольно сложно. Чтобы отфильтровать повторяющиеся сообщения журнала, Пеликан поставляется с <code>LOG_FILTER</code> настройкой.</p>
+<p><code>LOG_FILTER</code> должен быть списком кортежей <code>(level, msg)</code>, каждый из которых состоит из уровня ведения журнала (до <code>warning</code>) и сообщения, которое следует игнорировать. Просто заполните список сообщениями журнала, которые вы хотите скрыть, и они будут отфильтрованы.</p>
+<p>Например:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">LOG_FILTER</span> <span class="o">=</span> <span class="p">[(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARN</span><span class="p">,</span> <span class="s1">&#39;TAG_SAVE_AS is set to False&#39;</span><span class="p">)]</span>
 </code></pre></div>
 
 
-<p>It is possible to filter out messages by a template. Check out source code to obtain a template.</p>
-<p>For example:</p>
+<p>Есть возможность отфильтровать сообщения по шаблону. Ознакомьтесь с исходным кодом, чтобы получить шаблон.</p>
+<p>Например:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">LOG_FILTER</span> <span class="o">=</span> <span class="p">[(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARN</span><span class="p">,</span> <span class="s1">&#39;Empty alt attribute for image </span><span class="si">%s</span><span class="s1"> in </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">)]</span>
 </code></pre></div>
 
 
-<p>Warning</p>
-<p>Silencing messages by templates is a dangerous feature. It is possible to unintentionally filter out multiple message types with the same template (including messages from future Pelican versions). Proceed with caution.</p>
-<p>Note</p>
-<p>This option does nothing if  <code>--debug</code>  is passed.</p>
-<h2>Reading only modified content<a href="#reading-only-modified-content" title="Permalink to this headline">¶</a></h2>
-<p>To speed up the build process, Pelican can optionally read only articles and pages with modified content.</p>
-<p>When Pelican is about to read some content source file:</p>
+<blockquote>
+<p>Предупреждение</p>
+<p>Отключение сообщений по шаблонам - опасная функция. Можно
+непреднамеренно отфильтровать несколько типов сообщений с помощью
+одного и того же шаблона (включая сообщения из будущих версий
+Pelican). Действовать с осторожностью.</p>
+<p>Заметка</p>
+<p>Эта опция ничего не делает, если <code>--debug</code> она передана.</p>
+</blockquote>
+<h2>Чтение только измененного содержимого <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#reading-only-modified-content" title="Постоянная ссылка на этот заголовок">¶</a></h2>
+<p>Чтобы ускорить процесс сборки, Pelican может дополнительно читать только статьи и страницы с измененным содержанием.</p>
+<p>Когда Пеликан собирается прочитать какой-то исходный файл:</p>
 <ol>
 <li>
-<p>The hash or modification time information for the file from a previous build are loaded from a cache file if  <code>LOAD_CONTENT_CACHE</code>  is  <code>True</code>. These files are stored in the  <code>CACHE_PATH</code>  directory. If the file has no record in the cache file, it is read as usual.</p>
+<p>Информация о хэше или времени модификации для файла из предыдущей сборки загружается из файла кеша, если он <code>LOAD_CONTENT_CACHE</code> есть <code>True</code>. Эти файлы хранятся в <code>CACHE_PATH</code> каталоге. Если файл не имеет записи в файле кэша, он читается как обычно.</p>
 </li>
 <li>
-<p>The file is checked according to  <code>CHECK_MODIFIED_METHOD</code>:</p>
+<p>Файл проверяется по <code>CHECK_MODIFIED_METHOD</code>:</p>
 <blockquote>
 <ul>
-<li>If set to  <code>'mtime'</code>, the modification time of the file is checked.</li>
-<li>If set to a name of a function provided by the  <code>hashlib</code>  module, e.g.  <code>'md5'</code>, the file hash is checked.</li>
-<li>If set to anything else or the necessary information about the file cannot be found in the cache file, the content is read as usual.</li>
+<li>Если установлено значение <code>'mtime'</code>, проверяется время изменения файла.</li>
+<li>Если установлено имя функции, предоставляемой <code>hashlib</code> модулем, например <code>'md5'</code>, проверяется хэш файла.</li>
+<li>Если установлено любое другое значение или необходимая информация о файле не может быть найдена в файле кэша, содержимое читается как обычно.</li>
 </ul>
 </blockquote>
 </li>
 <li>
-<p>If the file is considered unchanged, the content data saved in a previous build corresponding to the file is loaded from the cache, and the file is not read.</p>
+<p>Если файл считается неизменным, данные содержимого, сохраненные в предыдущей сборке, соответствующей файлу, загружаются из кеша, и файл не читается.</p>
 </li>
 <li>
-<p>If the file is considered changed, the file is read and the new modification information and the content data are saved to the cache if  <code>CACHE_CONTENT</code>  is  <code>True</code>.</p>
+<p>Если файл считается измененным, файл считывается, и информация о новой модификации и данные содержимого сохраняются в кэш, если <code>CACHE_CONTENT</code> есть <code>True</code>.</p>
 </li>
 </ol>
-<p>If  <code>CONTENT_CACHING_LAYER</code>  is set to  <code>'reader'</code>  (the default), the raw content and metadata returned by a reader are cached. If this setting is instead set to  <code>'generator'</code>, the processed content object is cached. Caching the processed content object may conflict with plugins (as some reading related signals may be skipped) and the  <code>WITH_FUTURE_DATES</code>  functionality (as the  <code>draft</code>  status of the cached content objects would not change automatically over time).</p>
-<p>Checking modification times is faster than comparing file hashes, but it is not as reliable because  <code>mtime</code>  information can be lost, e.g., when copying content source files using the  <code>cp</code>  or  <code>rsync</code>  commands without the  <code>mtime</code>  preservation mode (which for  <code>rsync</code>  can be invoked by passing the  <code>--archive</code>  flag).</p>
-<p>The cache files are Python pickles, so they may not be readable by different versions of Python as the pickle format often changes. If such an error is encountered, it is caught and the cache file is rebuilt automatically in the new format. The cache files will also be rebuilt after the  <code>GZIP_CACHE</code>  setting has been changed.</p>
-<p>The  <code>--ignore-cache</code>  command-line option is useful when the whole cache needs to be regenerated, such as when making modifications to the settings file that will affect the cached content, or just for debugging purposes. When Pelican runs in autoreload mode, modification of the settings file will make it ignore the cache automatically if  <code>AUTORELOAD_IGNORE_CACHE</code>  is  <code>True</code>.</p>
-<p>Note that even when using cached content, all output is always written, so the modification times of the generated  <code>*.html</code>  files will always change. Therefore,  <code>rsync</code>-based uploading may benefit from the  <code>--checksum</code>  option.</p>
-<h2>Writing only selected content<a href="#writing-only-selected-content" title="Permalink to this headline">¶</a></h2>
-<p>When only working on a single article or page, or making tweaks to your theme, it is often desirable to generate and review your work as quickly as possible. In such cases, generating and writing the entire site output is often unnecessary. By specifying only the desired files as output paths in the  <code>WRITE_SELECTED</code>  list,  <strong>only</strong>  those files will be written. This list can be also specified on the command line using the  <code>--write-selected</code>  option, which accepts a comma-separated list of output file paths. By default this list is empty, so all output is written. See  <a href="https://docs.getpelican.com/en/stable/publish.html#site-generation">Site generation</a>  for more details.</p>
-<h2>Example settings<a href="#example-settings" title="Permalink to this headline">¶</a></h2>
+<p>Если <code>CONTENT_CACHING_LAYER</code> установлено значение <code>'reader'</code> (по умолчанию), необработанное содержимое и метаданные, возвращаемые средством чтения, кэшируются. Если для этого параметра установлено значение <code>'generator'</code>, обрабатываемый объект содержимого кэшируется. Кэширование обработанного объекта содержимого может конфликтовать с подключаемыми модулями (поскольку некоторые сигналы, относящиеся к чтению, могут быть пропущены) и <code>WITH_FUTURE_DATES</code> функциональностью (поскольку <code>draft</code> состояние кэшированных объектов содержимого не будет автоматически меняться со временем).</p>
+<p>Проверка времени модификации выполняется быстрее, чем сравнение хэшей файлов, но это не так надежно, потому что <code>mtime</code> информация может быть потеряна, например, при копировании исходных файлов контента с помощью команд <code>cp</code> или <code>rsync</code>без <code>mtime</code> режима сохранения (который <code>rsync</code> можно активировать, передав <code>--archive</code> флаг).</p>
+<p>Файлы кеша представляют собой соленые огурцы Python, поэтому они могут быть недоступны для чтения различными версиями Python, поскольку формат рассола часто меняется. Если возникает такая ошибка, она перехватывается, и файл кеша автоматически перестраивается в новом формате. Файлы кеша также будут перестроены после изменения <code>GZIP_CACHE</code> настройки.</p>
+<p>Параметр <code>--ignore-cache</code> командной строки полезен, когда необходимо регенерировать весь кеш, например, при внесении изменений в файл настроек, которые повлияют на кэшированное содержимое, или просто для целей отладки. Когда Pelican работает в режиме автоперезагрузки, изменение файла настроек заставит его автоматически игнорировать кеш, если он <code>AUTORELOAD_IGNORE_CACHE</code> есть <code>True</code>.</p>
+<p>Обратите внимание, что даже при использовании кэшированного содержимого весь вывод всегда записывается, поэтому время модификации сгенерированных <code>*.html</code> файлов всегда будет меняться. Следовательно, <code>rsync</code>эта <code>--checksum</code> опция может быть полезной для загрузки на основе .</p>
+<h2>Запись только выбранного контента <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#writing-only-selected-content" title="Постоянная ссылка на этот заголовок">¶</a></h2>
+<p>Когда вы работаете только над отдельной статьей или страницей или вносите изменения в свою тему, часто бывает желательно как можно быстрее создать и просмотреть свою работу. В таких случаях создание и запись всего вывода сайта часто не требуется. Если указать только желаемые файлы в качестве выходных путей в <code>WRITE_SELECTED</code> списке, будут записаны <strong>только</strong> эти файлы. Этот список также можно указать в командной строке с помощью <code>--write-selected</code> параметра, который принимает список путей к выходным файлам, разделенных запятыми. По умолчанию этот список пуст, поэтому записывается весь вывод. Подробнее см. <a href="https://docs.getpelican.com/en/stable/publish.html#site-generation">Создание сайта</a> .</p>
+<h2>Пример настроек <a href="https://adsmek.github.io/nastroiki-osnovnye-nastroiki.html#example-settings" title="Постоянная ссылка на этот заголовок">¶</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
 
-<span class="n">AUTHOR</span>  <span class="o">=</span>  <span class="err">‘</span><span class="n">Alexis</span> <span class="n">Métaireau</span><span class="err">’</span>  
-<span class="n">SITENAME</span>  <span class="o">=</span>  <span class="err">“</span><span class="n">Alexis</span><span class="err">’</span> <span class="n">log</span><span class="err">”</span>  
-<span class="n">SITESUBTITLE</span>  <span class="o">=</span>  <span class="err">‘</span><span class="n">A</span> <span class="n">personal</span> <span class="n">blog</span><span class="o">.</span><span class="err">’</span>  
-<span class="n">SITEURL</span>  <span class="o">=</span>  <span class="err">‘</span><span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">blog</span><span class="o">.</span><span class="n">notmyidea</span><span class="o">.</span><span class="n">org</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">blog</span><span class="o">.</span><span class="n">notmyidea</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="p">)</span><span class="err">’</span>  
-<span class="n">TIMEZONE</span>  <span class="o">=</span>  <span class="err">“</span><span class="n">Europe</span><span class="o">/</span><span class="n">Paris</span><span class="err">”</span>
+<span class="n">AUTHOR</span> <span class="o">=</span> <span class="s1">&#39;Alexis Métaireau&#39;</span>
+<span class="n">SITENAME</span> <span class="o">=</span> <span class="s2">&quot;Alexis&#39; log&quot;</span>
+<span class="n">SITESUBTITLE</span> <span class="o">=</span> <span class="s1">&#39;A personal blog.&#39;</span>
+<span class="n">SITEURL</span> <span class="o">=</span> <span class="s1">&#39;http://blog.notmyidea.org&#39;</span>
+<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s2">&quot;Europe/Paris&quot;</span>
 
-<span class="c1"># can be useful in development, but set to False when you’re ready to publish  </span>
-<span class="n">RELATIVE_URLS</span>  <span class="o">=</span>  <span class="bp">True</span>
+<span class="c1"># can be useful in development, but set to False when you&#39;re ready to publish</span>
+<span class="n">RELATIVE_URLS</span> <span class="o">=</span> <span class="bp">True</span>
 
-<span class="n">GITHUB_URL</span>  <span class="o">=</span>  <span class="err">‘</span><span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ametaireau</span><span class="o">/</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ametaireau</span><span class="o">/</span><span class="p">)</span><span class="err">’</span>  
-<span class="n">DISQUS_SITENAME</span>  <span class="o">=</span>  <span class="err">“</span><span class="n">blog</span><span class="o">-</span><span class="n">notmyidea</span><span class="err">”</span>  
-<span class="n">REVERSE_CATEGORY_ORDER</span>  <span class="o">=</span>  <span class="bp">True</span>  
-<span class="n">LOCALE</span>  <span class="o">=</span>  <span class="err">“</span><span class="n">C</span><span class="err">”</span>  
-<span class="n">DEFAULT_PAGINATION</span>  <span class="o">=</span>  <span class="mi">4</span>  
-<span class="n">DEFAULT_DATE</span>  <span class="o">=</span>  <span class="p">(</span><span class="mi">2012</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">14</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">)</span>
+<span class="n">GITHUB_URL</span> <span class="o">=</span> <span class="s1">&#39;http://github.com/ametaireau/&#39;</span>
+<span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s2">&quot;blog-notmyidea&quot;</span>
+<span class="n">REVERSE_CATEGORY_ORDER</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">LOCALE</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span>
+<span class="n">DEFAULT_PAGINATION</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">DEFAULT_DATE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="n">FEED_ALL_RSS</span>  <span class="o">=</span>  <span class="err">‘</span><span class="n">feeds</span><span class="o">/</span><span class="nb">all</span><span class="o">.</span><span class="n">rss</span><span class="o">.</span><span class="n">xml</span><span class="err">’</span>  
-<span class="n">CATEGORY_FEED_RSS</span>  <span class="o">=</span>  <span class="err">‘</span><span class="n">feeds</span><span class="o">/</span><span class="p">{</span><span class="n">slug</span><span class="p">}</span><span class="o">.</span><span class="n">rss</span><span class="o">.</span><span class="n">xml</span><span class="err">’</span>
+<span class="n">FEED_ALL_RSS</span> <span class="o">=</span> <span class="s1">&#39;feeds/all.rss.xml&#39;</span>
+<span class="n">CATEGORY_FEED_RSS</span> <span class="o">=</span> <span class="s1">&#39;feeds/{slug}.rss.xml&#39;</span>
 
-<span class="n">LINKS</span>  <span class="o">=</span>  <span class="p">((</span><span class="err">‘</span><span class="n">Biologeek</span><span class="err">’</span><span class="p">,</span>  <span class="err">‘</span><span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">biologeek</span><span class="o">.</span><span class="n">org</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">biologeek</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="p">)</span><span class="err">’</span><span class="p">),</span>  
-<span class="p">(</span><span class="err">‘</span><span class="n">Filyb</span><span class="err">’</span><span class="p">,</span>  <span class="err">“</span><span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">filyb</span><span class="o">.</span><span class="n">info</span><span class="o">/</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">filyb</span><span class="o">.</span><span class="n">info</span><span class="o">/</span><span class="p">)</span><span class="err">”</span><span class="p">),</span>  
-<span class="p">(</span><span class="err">‘</span><span class="n">Libert</span><span class="o">-</span><span class="n">fr</span><span class="err">’</span><span class="p">,</span>  <span class="err">“</span><span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">libert</span><span class="o">-</span><span class="n">fr</span><span class="o">.</span><span class="n">com</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">libert</span><span class="o">-</span><span class="n">fr</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="p">)</span><span class="err">”</span><span class="p">),</span>  
-<span class="p">(</span><span class="err">‘</span><span class="n">N1k0</span><span class="err">’</span><span class="p">,</span>  <span class="err">“</span><span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">prendreuncafe</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">prendreuncafe</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="p">)</span><span class="err">”</span><span class="p">),</span>  
-<span class="p">(</span><span class="err">‘</span><span class="n">Tarek</span> <span class="n">Ziadé</span><span class="err">’</span><span class="p">,</span>  <span class="err">“</span><span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">ziade</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">blog</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">ziade</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">blog</span><span class="p">)</span><span class="err">”</span><span class="p">),</span>  
-<span class="p">(</span><span class="err">‘</span><span class="n">Zubin</span> <span class="n">Mithra</span><span class="err">’</span><span class="p">,</span>  <span class="err">“</span><span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">zubin71</span><span class="o">.</span><span class="n">wordpress</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">zubin71</span><span class="o">.</span><span class="n">wordpress</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="p">)</span><span class="err">”</span><span class="p">),)</span>
+<span class="n">LINKS</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;Biologeek&#39;</span><span class="p">,</span> <span class="s1">&#39;http://biologeek.org&#39;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;Filyb&#39;</span><span class="p">,</span> <span class="s2">&quot;http://filyb.info/&quot;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;Libert-fr&#39;</span><span class="p">,</span> <span class="s2">&quot;http://www.libert-fr.com&quot;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;N1k0&#39;</span><span class="p">,</span> <span class="s2">&quot;http://prendreuncafe.com/blog/&quot;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;Tarek Ziadé&#39;</span><span class="p">,</span> <span class="s2">&quot;http://ziade.org/blog&quot;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;Zubin Mithra&#39;</span><span class="p">,</span> <span class="s2">&quot;http://zubin71.wordpress.com/&quot;</span><span class="p">),)</span>
 
-<span class="n">SOCIAL</span>  <span class="o">=</span>  <span class="p">((</span><span class="err">‘</span><span class="n">twitter</span><span class="err">’</span><span class="p">,</span>  <span class="err">‘</span><span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">twitter</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ametaireau</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">twitter</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ametaireau</span><span class="p">)</span><span class="err">’</span><span class="p">),</span>  
-<span class="p">(</span><span class="err">‘</span><span class="n">lastfm</span><span class="err">’</span><span class="p">,</span>  <span class="err">‘</span><span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">lastfm</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">akounet</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">lastfm</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">akounet</span><span class="p">)</span><span class="err">’</span><span class="p">),</span>  
-<span class="p">(</span><span class="err">‘</span><span class="n">github</span><span class="err">’</span><span class="p">,</span>  <span class="err">‘</span><span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ametaireau</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ametaireau</span><span class="p">)</span><span class="err">’</span><span class="p">),)</span>
+<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;twitter&#39;</span><span class="p">,</span> <span class="s1">&#39;http://twitter.com/ametaireau&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;lastfm&#39;</span><span class="p">,</span> <span class="s1">&#39;http://lastfm.com/user/akounet&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;github&#39;</span><span class="p">,</span> <span class="s1">&#39;http://github.com/ametaireau&#39;</span><span class="p">),)</span>
 
-<span class="c1"># global metadata to all the contents  </span>
-<span class="n">DEFAULT_METADATA</span>  <span class="o">=</span>  <span class="p">{</span><span class="err">‘</span><span class="n">yeah</span><span class="err">’</span><span class="p">:</span>  <span class="err">‘</span><span class="n">it</span> <span class="ow">is</span><span class="err">’</span><span class="p">}</span>
+<span class="c1"># global metadata to all the contents</span>
+<span class="n">DEFAULT_METADATA</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;yeah&#39;</span><span class="p">:</span> <span class="s1">&#39;it is&#39;</span><span class="p">}</span>
 
-<span class="c1"># path-specific metadata  </span>
-<span class="n">EXTRA_PATH_METADATA</span>  <span class="o">=</span>  <span class="p">{</span>  
-<span class="err">‘</span><span class="n">extra</span><span class="o">/</span><span class="n">robots</span><span class="o">.</span><span class="n">txt</span><span class="err">’</span><span class="p">:</span>  <span class="p">{</span><span class="err">‘</span><span class="n">path</span><span class="err">’</span><span class="p">:</span>  <span class="err">‘</span><span class="n">robots</span><span class="o">.</span><span class="n">txt</span><span class="err">’</span><span class="p">},</span>  
-<span class="p">}</span>
+<span class="c1"># path-specific metadata</span>
+<span class="n">EXTRA_PATH_METADATA</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;extra/robots.txt&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="s1">&#39;robots.txt&#39;</span><span class="p">},</span>
+    <span class="p">}</span>
 
-<span class="c1"># static paths will be copied without parsing their contents  </span>
-<span class="n">STATIC_PATHS</span>  <span class="o">=</span>  <span class="p">[</span>  
-<span class="err">‘</span><span class="n">pictures</span><span class="err">’</span><span class="p">,</span>  
-<span class="err">‘</span><span class="n">extra</span><span class="o">/</span><span class="n">robots</span><span class="o">.</span><span class="n">txt</span><span class="err">’</span><span class="p">,</span>  
-<span class="p">]</span>
+<span class="c1"># static paths will be copied without parsing their contents</span>
+<span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;pictures&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;extra/robots.txt&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
 
-<span class="c1"># custom page generated with a jinja2 template  </span>
-<span class="n">TEMPLATE_PAGES</span>  <span class="o">=</span>  <span class="p">{</span><span class="err">‘</span><span class="n">pages</span><span class="o">/</span><span class="n">jinja2_template</span><span class="o">.</span><span class="n">html</span><span class="err">’</span><span class="p">:</span>  <span class="err">‘</span><span class="n">jinja2_template</span><span class="o">.</span><span class="n">html</span><span class="err">’</span><span class="p">}</span>
+<span class="c1"># custom page generated with a jinja2 template</span>
+<span class="n">TEMPLATE_PAGES</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;pages/jinja2_template.html&#39;</span><span class="p">:</span> <span class="s1">&#39;jinja2_template.html&#39;</span><span class="p">}</span>
 
-<span class="c1"># code blocks with line numbers  </span>
-<span class="n">PYGMENTS_RST_OPTIONS</span>  <span class="o">=</span>  <span class="p">{</span><span class="err">‘</span><span class="n">linenos</span><span class="err">’</span><span class="p">:</span>  <span class="err">‘</span><span class="n">table</span><span class="err">’</span><span class="p">}</span>
+<span class="c1"># code blocks with line numbers</span>
+<span class="n">PYGMENTS_RST_OPTIONS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;linenos&#39;</span><span class="p">:</span> <span class="s1">&#39;table&#39;</span><span class="p">}</span>
 
-<span class="c1"># foobar will not be used, because it’s not in caps. All configuration keys  </span>
-<span class="c1"># have to be in caps  </span>
-<span class="n">foobar</span>  <span class="o">=</span>  <span class="err">“</span><span class="n">barbaz</span><span class="err">”</span>
+<span class="c1"># foobar will not be used, because it&#39;s not in caps. All configuration keys</span>
+<span class="c1"># have to be in caps</span>
+<span class="n">foobar</span> <span class="o">=</span> <span class="s2">&quot;barbaz&quot;</span>
 </code></pre></div>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
