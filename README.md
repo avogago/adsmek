@@ -8,6 +8,7 @@
 
  + [Go to Adsmek site readme](https://adsmek.github.io/unedtsarnd.html)
  + [Go to Adsmek.github.io](https://github.com/Adsmek/Adsmek.github.io)
+ + [github.com login][https://github.com/login]
 
 ### Периодичные действия в CMD
 
@@ -33,6 +34,7 @@
  + [https://stackedit.io/app#](https://stackedit.io/app#) Редактор Markdown
  + [https://html-cleaner.com/](https://html-cleaner.com/) HTML-cleaner
  + [http://livesphinx.herokuapp.com/](http://livesphinx.herokuapp.com/) Редактор Rst
+
 ___
 
 ## [GitHub Pages](https://pages.github.com/)
