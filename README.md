@@ -32,6 +32,7 @@
 
  + [https://stackedit.io/app#](https://stackedit.io/app#) Редактор Markdown
  + [https://html-cleaner.com/](https://html-cleaner.com/) HTML-cleaner
+ + [http://livesphinx.herokuapp.com/](http://livesphinx.herokuapp.com/) Редактор Rst
 ___
 
 ## [GitHub Pages](https://pages.github.com/)
